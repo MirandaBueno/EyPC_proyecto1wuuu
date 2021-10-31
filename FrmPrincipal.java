@@ -57,7 +57,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "  <Signo Peso>\t" + lexer.lexeme + "\n";
                     break;
                 case ORG:
-                    resultado += "  <Etiqueta ORG>\t" + lexer.lexeme + "\n";
+                    resultado += "  < ORG>\t" + lexer.lexeme + "\n";
                     break;
                 case Opcode:
                     resultado += "  <Opcode>\t" + lexer.lexeme + "\n";
@@ -65,8 +65,77 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case DosPuntos:
                     resultado += "  <:>\t" + lexer.lexeme + "\n";
                     break;
-                case Mnemonico:
-                    resultado += "  <Mnemónico>\t" + lexer.lexeme + "\n";
+                case Otro:
+                    resultado += "  <Otro>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ABA:
+                    resultado += "  <1B>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ABX:
+                    resultado += "  <3A>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ABY:
+                    resultado += "  <18 3A>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ASLA:
+                    resultado += "  <48>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ASLB:
+                    resultado += "  <58>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ASLD:
+                    resultado += "  <5>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ASRA:
+                    resultado += "  <47>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ASRB:
+                    resultado += "  <57>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CBA:
+                    resultado += "  <11>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CLC:
+                    resultado += "  <0C>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CLI:
+                    resultado += "  <0E>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CLRA:
+                    resultado += "  <4F>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CLRB:
+                    resultado += "  <5F>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_CLV:
+                    resultado += "  <0A>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_COMA:
+                    resultado += "  <43>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_COMB:
+                    resultado += "  <53>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DAA:
+                    resultado += "  <19>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DECA:
+                    resultado += "  <4A>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DECB:
+                    resultado += "  <5A>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DES:
+                    resultado += "  <34>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DEX:
+                    resultado += "  <09>\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_DEY:
+                    resultado += "  <18 09>\t" + lexer.lexeme + "\n";
+                    break;
+                case Numero:
+                    resultado += "  <Número>\t" + lexer.lexeme + "\n";
                     break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
