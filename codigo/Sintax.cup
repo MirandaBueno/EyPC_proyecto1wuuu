@@ -1,0 +1,143 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s=s;
+    }
+    
+    public Symbol getS(){
+        return this.s;
+    }
+:};
+
+terminal Org, Fcb, End, Equ, Espacio, Comentario, Etiq_Var_Instrucc, NumeroHexaIMM,
+        NumeroDecIMM, CharIMM, NumeroHexaDIR, NumeroDecDIR_EXT, NumeroHexaEXT,
+        NumeroHexaINDX, NumeroHexaINDY, ERROR, Org_Equ, Linea;
+non terminal INICIO, DECLAR_VAR, DECLAR_VAR2, INSTRUCCION, ORG, ORG2, COMENTARIO,
+         INH, IMM, DIR, EXT, INDX, INDY, REL, ETIQ;
+
+start with INICIO;
+
+
+INICIO ::= 
+    ORG INSTRUCCION Espacio End Espacio Linea |
+    ORG INSTRUCCION Espacio End Linea Espacio |
+    ORG INSTRUCCION Espacio End Espacio |
+    ORG INSTRUCCION Espacio End Linea |
+    ORG INSTRUCCION Espacio End |
+
+    COMENTARIO ORG INSTRUCCION Espacio End Espacio Linea |
+    COMENTARIO ORG INSTRUCCION Espacio End Linea Espacio |
+    COMENTARIO ORG INSTRUCCION Espacio End End Espacio |
+    COMENTARIO ORG INSTRUCCION Espacio End Linea |
+    COMENTARIO ORG INSTRUCCION Espacio End |
+
+    ORG INSTRUCCION Espacio End COMENTARIO |
+    COMENTARIO ORG INSTRUCCION Espacio End COMENTARIO |
+    DECLAR_VAR Espacio ORG INSTRUCCION Espacio End 
+;
+
+
+ORG ::=
+    Espacio Org Espacio Org_Equ ORG2  
+;
+
+ORG2 ::=
+    Comentario Linea | 
+    Linea
+;
+
+COMENTARIO ::=
+    Espacio Comentario Linea |
+    Comentario Linea |
+    Espacio Comentario Espacio Linea |
+    Comentario Espacio Linea 
+;
+
+INSTRUCCION ::=
+    Linea |
+    Espacio Linea |
+    COMENTARIO |
+    INSTRUCCION INH |
+    INH |
+    INSTRUCCION IMM |
+    IMM |
+    INSTRUCCION DIR |
+    DIR |
+    INSTRUCCION Espacio Etiq_Var_Instrucc Espacio NumeroDecDIR_EXT Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroDecDIR_EXT Linea |
+    INSTRUCCION Espacio Etiq_Var_Instrucc Espacio NumeroDecDIR_EXT Comentario Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroDecDIR_EXT Comentario Linea |
+    INSTRUCCION EXT |
+    EXT |
+    INSTRUCCION INDX |
+    INDX |
+    INSTRUCCION INDY |
+    INDY |
+    INSTRUCCION REL |
+    REL |
+    INSTRUCCION ETIQ |
+    ETIQ |
+    INSTRUCCION ORG |
+    ORG
+;
+
+ETIQ ::=
+    Etiq_Var_Instrucc Linea |
+    Etiq_Var_Instrucc Comentario Linea 
+;
+
+IMM ::=
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaIMM Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaIMM Comentario Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroDecIMM Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroDecIMM Comentario Linea |
+    Espacio Etiq_Var_Instrucc Espacio CharIMM Linea |
+    Espacio Etiq_Var_Instrucc Espacio CharIMM Comentario Linea 
+;
+
+INH ::=
+    Espacio Etiq_Var_Instrucc Linea |
+    Espacio Etiq_Var_Instrucc Espacio Comentario Linea 
+;
+
+DIR ::=
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaDIR Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaDIR Comentario Linea 
+;
+
+EXT ::=
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaEXT Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaEXT Comentario Linea
+;
+
+INDX ::=
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaINDX Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaINDX Comentario Linea
+;
+
+INDY ::=
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaINDY Linea |
+    Espacio Etiq_Var_Instrucc Espacio NumeroHexaINDY Comentario Linea
+;
+
+REL ::=
+    Espacio Etiq_Var_Instrucc Espacio Etiq_Var_Instrucc Linea |
+    Espacio Etiq_Var_Instrucc Espacio Etiq_Var_Instrucc Comentario Linea
+;
+
+DECLAR_VAR ::=
+    Etiq_Var_Instrucc Espacio Equ Espacio Org_Equ DECLAR_VAR2 
+;
+
+DECLAR_VAR2 ::=
+    Comentario Linea |
+    Linea
+;
+
+
