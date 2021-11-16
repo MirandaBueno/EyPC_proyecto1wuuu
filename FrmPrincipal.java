@@ -69,70 +69,310 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "  <Otro>\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ABA:
-                    resultado += "  <1B>\t" + lexer.lexeme + "\n";
+                    resultado += "  1B : \t" + lexer.lexeme + "\n";
                     break;
                 case INH_ABX:
-                    resultado += "  <3A>\t" + lexer.lexeme + "\n";
+                    resultado += "  3A\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ABY:
-                    resultado += "  <18 3A>\t" + lexer.lexeme + "\n";
+                    resultado += "  18 3A\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ASLA:
-                    resultado += "  <48>\t" + lexer.lexeme + "\n";
+                    resultado += "  48\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ASLB:
-                    resultado += "  <58>\t" + lexer.lexeme + "\n";
+                    resultado += "  58\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ASLD:
-                    resultado += "  <5>\t" + lexer.lexeme + "\n";
+                    resultado += "  5\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ASRA:
-                    resultado += "  <47>\t" + lexer.lexeme + "\n";
+                    resultado += "  47\t" + lexer.lexeme + "\n";
                     break;
                 case INH_ASRB:
-                    resultado += "  <57>\t" + lexer.lexeme + "\n";
+                    resultado += "  57\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CBA:
-                    resultado += "  <11>\t" + lexer.lexeme + "\n";
+                    resultado += "  11\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CLC:
-                    resultado += "  <0C>\t" + lexer.lexeme + "\n";
+                    resultado += "  0C\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CLI:
-                    resultado += "  <0E>\t" + lexer.lexeme + "\n";
+                    resultado += "  0E\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CLRA:
-                    resultado += "  <4F>\t" + lexer.lexeme + "\n";
+                    resultado += "  4F\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CLRB:
-                    resultado += "  <5F>\t" + lexer.lexeme + "\n";
+                    resultado += "  5F\t" + lexer.lexeme + "\n";
                     break;
                 case INH_CLV:
-                    resultado += "  <0A>\t" + lexer.lexeme + "\n";
+                    resultado += "  0A\t" + lexer.lexeme + "\n";
                     break;
                 case INH_COMA:
-                    resultado += "  <43>\t" + lexer.lexeme + "\n";
+                    resultado += "  43\t" + lexer.lexeme + "\n";
                     break;
                 case INH_COMB:
-                    resultado += "  <53>\t" + lexer.lexeme + "\n";
+                    resultado += "  53\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DAA:
-                    resultado += "  <19>\t" + lexer.lexeme + "\n";
+                    resultado += "  19\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DECA:
-                    resultado += "  <4A>\t" + lexer.lexeme + "\n";
+                    resultado += "  4A\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DECB:
-                    resultado += "  <5A>\t" + lexer.lexeme + "\n";
+                    resultado += "  5A\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DES:
-                    resultado += "  <34>\t" + lexer.lexeme + "\n";
+                    resultado += "  34\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DEX:
-                    resultado += "  <09>\t" + lexer.lexeme + "\n";
+                    resultado += "  09\t" + lexer.lexeme + "\n";
                     break;
                 case INH_DEY:
-                    resultado += "  <18 09>\t" + lexer.lexeme + "\n";
+                    resultado += "  18 09\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_FDIV:
+                    resultado += "  03\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_IDIV:
+                    resultado += "  02\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_INCA:
+                    resultado += "  4C\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_INCB:
+                    resultado += "  5C\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_INS:
+                    resultado += "  31\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_INX:
+                    resultado += "  08\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_INY:
+                    resultado += "  18 08\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSLA:
+                    resultado += "  48\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSLB:
+                    resultado += "  58\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSLD:
+                    resultado += "  05\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSRA:
+                    resultado += "  44\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSRB:
+                    resultado += "  54\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_LSRD:
+                    resultado += "  04\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_MUL:
+                    resultado += "  3D\t" + lexer.lexeme + "\n";
+                    break; 
+                case INH_NEGA:
+                    resultado += "  40\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_NEGB:
+                    resultado += "  50\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_NOP:
+                    resultado += "  01\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PSHA:
+                    resultado += "  36\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PSHB:
+                    resultado += "  37\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PSHX:
+                    resultado += "  3C\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PSHY:
+                    resultado += "  18 3C\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PULA:
+                    resultado += "  32\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PULB:
+                    resultado += "  33\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PULX:
+                    resultado += "  38\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_PULY:
+                    resultado += "  18 38\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ROLA:
+                    resultado += "  49\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_ROLB:
+                    resultado += "  59\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_RORA:
+                    resultado += "  46\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_RORB:
+                    resultado += "  56\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_RTI:
+                    resultado += "  3B\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_RTS:
+                    resultado += "  39\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_SBA:
+                    resultado += "  10\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_SEC:
+                    resultado += "  OD\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_SEI:
+                    resultado += "  OF\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_SEV:
+                    resultado += "  OB\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_STOP:
+                    resultado += "  CF\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_SWI:
+                    resultado += "  3F\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TAB:
+                    resultado += "  16\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TAP:
+                    resultado += "  0 6\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TBA:
+                    resultado += "  17\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TETS:
+                    resultado += "  0 0\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TPA:
+                    resultado += "  0 7\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TSTA:
+                    resultado += "  4D\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TSTB:
+                    resultado += "  5D\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TSX:
+                    resultado += "  30\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TSY:
+                    resultado += "  18 30\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TXS:
+                    resultado += "  35\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_TYS:
+                    resultado += "  18 35\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_WAI:
+                    resultado += "  3E\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_XGDX:
+                    resultado += "  8F\t" + lexer.lexeme + "\n";
+                    break;
+                case INH_XGDY:
+                    resultado += "  18 8F\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCA:
+                    resultado += "  89\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCB:
+                    resultado += "  C9\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDA:
+                    resultado += "  8B\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDB:
+                    resultado += "  CB\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDD:
+                    resultado += "  C3\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ANDA:
+                    resultado += "  84\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ANDB:
+                    resultado += "  C4\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITA:
+                    resultado += "  85\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITB:
+                    resultado += "  C5\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPA:
+                    resultado += "  81\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPB:
+                    resultado += "  C1\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPD:
+                    resultado += "  1A 83\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPX:
+                    resultado += "  8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPY:
+                    resultado += "  18 8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORA:
+                    resultado += "  88\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORB:
+                    resultado += "  C8\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDAA:
+                    resultado += "  86\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDAB:
+                    resultado += "  C6\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDD:
+                    resultado += "  CC\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDS:
+                    resultado += "  8E\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDX:
+                    resultado += "  CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDY:
+                    resultado += "  18 CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAA:
+                    resultado += "  8A\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAB:
+                    resultado += "  CA\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCA:
+                    resultado += "  82\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCB:
+                    resultado += "  C2\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBA:
+                    resultado += "  80\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBB:
+                    resultado += "  C0\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBD:
+                    resultado += "  83\t" + lexer.lexeme + "\n";
                     break;
                 case Numero:
                     resultado += "  <Número>\t" + lexer.lexeme + "\n";
