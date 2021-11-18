@@ -35,7 +35,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         String expr = (String) txtResultado.getText();
         Lexer lexer = new Lexer(new StringReader(expr));
-        String resultado = "LINEA " + cont + "\t\tSIMBOLO\n";
+        String resultado = "LINEA " + cont;// + "\t\tSIMBOLO\n";
         while (true) {
             Tokens token = lexer.yylex();
             if (token == null) {
@@ -48,13 +48,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "LINEA " + cont + "\n";
                     break;
                 case Gato:
-                    resultado += "  <Gato>\t\t" + lexer.lexeme + "\n";
+                    resultado += "  " + lexer.lexeme + "\n";
                     break;
                 case Apostrofe:
                     resultado += "  <Apostrofe>\t" + lexer.lexeme + "\n";
                     break;
                 case SignoPeso:
-                    resultado += "  <Signo Peso>\t" + lexer.lexeme + "\n";
+                    resultado += "  " + lexer.lexeme; //+ "\n";
                     break;
                 case ORG:
                     resultado += "  < ORG>\t" + lexer.lexeme + "\n";
@@ -336,7 +336,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "  C8\t" + lexer.lexeme + "\n";
                     break;
                 case IMM_LDAA:
-                    resultado += "  86\t" + lexer.lexeme + "\n";
+                    resultado += "  86\t" + lexer.lexeme;// + "\n";
                     break;
                 case IMM_LDAB:
                     resultado += "  C6\t" + lexer.lexeme + "\n";
@@ -374,8 +374,128 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case IMM_SUBD:
                     resultado += "  83\t" + lexer.lexeme + "\n";
                     break;
-                case Numero:
-                    resultado += "  <Número>\t" + lexer.lexeme + "\n";
+                case DIR_ADCA:
+                    resultado += "  99\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADCB:
+                    resultado += "  D9\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADDA:
+                    resultado += "  9B\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADDB:
+                    resultado += "  DB\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADDD:
+                    resultado += "  D3\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ANDA:
+                    resultado += "  94\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ANDB:
+                    resultado += "  D4\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BCLR:
+                    resultado += "  15\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BITA:
+                    resultado += "  95\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BITB:
+                    resultado += "  D5\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BRCLR:
+                    resultado += "  13\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BRSET:
+                    resultado += "  12\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BSET:
+                    resultado += "  14\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CMPA:
+                    resultado += "  91\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CMPB:
+                    resultado += "  D1\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPD:
+                    resultado += "  1A 93\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPX:
+                    resultado += "  8C\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPY:
+                    resultado += "  18 9C\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_EORA:
+                    resultado += "  98\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_EORB:
+                    resultado += "  D8\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_JSR:
+                    resultado += "  9D\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDAA:
+                    resultado += "  96\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDAB:
+                    resultado += "  D6\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDD:
+                    resultado += "  DC\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDS:
+                    resultado += "  9E\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDX:
+                    resultado += "  DE\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDY:
+                    resultado += "  18 DE\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ORAA:
+                    resultado += "  9A\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ORAB:
+                    resultado += "  DA\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SBCA:
+                    resultado += "  92\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SBCB:
+                    resultado += "  D2\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STAA:
+                    resultado += "  97\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STAB:
+                    resultado += "  D7\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STD:
+                    resultado += "  DD\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STS:
+                    resultado += "  9F\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STX:
+                    resultado += "  DF\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STY:
+                    resultado += "  18 DF\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBA:
+                    resultado += "  90\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBB:
+                    resultado += "  D0\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBD:
+                    resultado += "  93\t" + lexer.lexeme + "\n";
+                    break;
+                case NUMERO:
+                    resultado += " " + lexer.lexeme + "\n";
                     break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
