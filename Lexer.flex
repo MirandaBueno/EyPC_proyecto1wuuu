@@ -161,63 +161,143 @@ END {lexeme=yytext(); return END;}
 /*INH XGDY */
 ( "xgdy" | "XGDY" ) {lexeme = yytext(); return INH_XGDY;}
 /*IMM ADCA */
-( "adca #" | "ADCA #" ) {lexeme = yytext(); return IMM_ADCA; return Gato;}
+( "adca #" | "ADCA #" ) {lexeme = yytext(); return IMM_ADCA;}
 /*IMM ADCB */
-( "adcb #" | "ADCB #" ) {lexeme = yytext(); return IMM_ADCB; return Gato;}
+( "adcb #" | "ADCB #" ) {lexeme = yytext(); return IMM_ADCB;}
 /*IMM ADDA */ 
-( "adda #" | "ADDA #" ) {lexeme = yytext(); return IMM_ADDA; return Gato;}
+( "adda #" | "ADDA #" ) {lexeme = yytext(); return IMM_ADDA;}
 /*IMM ADDB */
-( "addb #" | "ADDB #" ) {lexeme = yytext(); return IMM_ADDB; return Gato;}
+( "addb #" | "ADDB #" ) {lexeme = yytext(); return IMM_ADDB;}
 /*IMM ADDD */
-( "addd #" | "ADDD #" ) {lexeme = yytext(); return IMM_ADDD; return Gato;}
+( "addd #" | "ADDD #" ) {lexeme = yytext(); return IMM_ADDD;}
 /*IMM ANDA */
-( "anda #" | "ANDA #" ) {lexeme = yytext(); return IMM_ANDA; return Gato;}
+( "anda #" | "ANDA #" ) {lexeme = yytext(); return IMM_ANDA;}
 /*IMM ANDB */ 
-( "andb #" | "ANDB #") {lexeme = yytext(); return IMM_ANDB; return Gato;}
+( "andb #" | "ANDB #") {lexeme = yytext(); return IMM_ANDB;}
 /*IMM BITA */ 
-( "bita #" | "BITA #") {lexeme = yytext(); return IMM_BITA; return Gato;}
+( "bita #" | "BITA #") {lexeme = yytext(); return IMM_BITA;}
 /*IMM BITB */ 
-( "bitb #" | "BITB #") {lexeme = yytext(); return IMM_BITB; return Gato;}
+( "bitb #" | "BITB #") {lexeme = yytext(); return IMM_BITB;}
 /*IMM CMPA */ 
-( "cmpa #" | "CMPA #") {lexeme = yytext(); return IMM_CMPA; return Gato;}
+( "cmpa #" | "CMPA #") {lexeme = yytext(); return IMM_CMPA;}
 /*IMM CMPB */ 
-( "cmpb #" | "CMPB #") {lexeme = yytext(); return IMM_CMPB; return Gato;}
+( "cmpb #" | "CMPB #") {lexeme = yytext(); return IMM_CMPB;}
 /*IMM CPD */ 
-( "cpd #" | "CPD #") {lexeme = yytext(); return IMM_CPD; return Gato;}
+( "cpd #" | "CPD #") {lexeme = yytext(); return IMM_CPD;}
 /*IMM CPX */ 
-( "cpx #" | "CPX #") {lexeme = yytext(); return IMM_CPX; return Gato;}
+( "cpx #" | "CPX #") {lexeme = yytext(); return IMM_CPX;}
 /*IMM CPY */ 
-( "cpy #" | "CPY #") {lexeme = yytext(); return IMM_CPY; return Gato;}
+( "cpy #" | "CPY #") {lexeme = yytext(); return IMM_CPY;}
 /*IMM EORA */ 
-( "eora #" | "EORA #") {lexeme = yytext(); return IMM_EORA; return Gato;}
+( "eora #" | "EORA #") {lexeme = yytext(); return IMM_EORA;}
 /*IMM EORB */ 
-( "eorb #" | "EORB #") {lexeme = yytext(); return IMM_EORB; return Gato;}
+( "eorb #" | "EORB #") {lexeme = yytext(); return IMM_EORB;}
 /*IMM LDAA */ 
-( "ldaa #" | "LDAA #") {lexeme = yytext(); return IMM_LDAA; return Gato;}
+( "ldaa #" | "LDAA #") {lexeme = yytext(); return IMM_LDAA;}
 /*IMM LDAB */ 
-( "ldab #" | "LDAB #") {lexeme = yytext(); return IMM_LDAB; return Gato;}
+( "ldab #" | "LDAB #") {lexeme = yytext(); return IMM_LDAB;}
 /*IMM LDD */ 
-( "ldd #" | "LDD #") {lexeme = yytext(); return IMM_LDD; return Gato;}
+( "ldd #" | "LDD #") {lexeme = yytext(); return IMM_LDD;}
 /*IMM LDS */ 
-( "lds #" | "LDS #") {lexeme = yytext(); return IMM_LDS; return Gato;}
+( "lds #" | "LDS #") {lexeme = yytext(); return IMM_LDS;}
 /*IMM LDX */ 
-( "ldx #" | "LDX #") {lexeme = yytext(); return IMM_LDX; return Gato;}
+( "ldx #" | "LDX #") {lexeme = yytext(); return IMM_LDX;}
 /*IMM LDY */ 
-( "ldy #" | "LDY #") {lexeme = yytext(); return IMM_LDY; return Gato;}
+( "ldy #" | "LDY #") {lexeme = yytext(); return IMM_LDY;}
 /*IMM ORAA */ 
-( "oraa #" | "ORAA #") {lexeme = yytext(); return IMM_ORAA; return Gato;}
+( "oraa #" | "ORAA #") {lexeme = yytext(); return IMM_ORAA;}
 /*IMM ORAB */ 
-( "orab #" | "ORAB #") {lexeme = yytext(); return IMM_ORAB; return Gato;}
+( "orab #" | "ORAB #") {lexeme = yytext(); return IMM_ORAB;}
 /*IMM SBCA */ 
-( "sbca #" | "SBCA #") {lexeme = yytext(); return IMM_SBCA; return Gato;}
+( "sbca #" | "SBCA #") {lexeme = yytext(); return IMM_SBCA;}
 /*IMM SBCB */ 
-( "sbcb #" | "SBCB #") {lexeme = yytext(); return IMM_SBCB; return Gato;}
+( "sbcb #" | "SBCB #") {lexeme = yytext(); return IMM_SBCB;}
 /*IMM SUBA */ 
-( "suba #" | "SUBA #") {lexeme = yytext(); return IMM_SUBA; return Gato;}
+( "suba #" | "SUBA #") {lexeme = yytext(); return IMM_SUBA;}
 /*IMM SUBB */ 
-( "subb #" | "SUBB #") {lexeme = yytext(); return IMM_SUBB; return Gato;}
+( "subb #" | "SUBB #") {lexeme = yytext(); return IMM_SUBB;}
 /*IMM SUBD */ 
-( "subd #"(-"{D}+")" | "SUBD #"(-"{D}+")") {lexeme = yytext(); return IMM_SUBD; return Gato; return Numero;}
+( "subd #"| "SUBD #" {lexeme = yytext(); return IMM_SUBD;}
+/*DIR ADCA */
+( "adca" | "ADCA" ) {lexeme = yytext(); return DIR_ADCA;}
+/*DIR ADCB */
+( "adcb" | "ADCB" ) {lexeme = yytext(); return DIR_ADCB;}
+/*DIR ADDA */ 
+( "adda" | "ADDA" ) {lexeme = yytext(); return DIR_ADDA;}
+/*DIR ADDB */
+( "addb" | "ADDB" ) {lexeme = yytext(); return DIR_ADDB;}
+/*DIR ADDD */
+( "addd" | "ADDD" ) {lexeme = yytext(); return DIR_ADDD;}
+/*DIR ANDA */
+( "anda" | "ANDA" ) {lexeme = yytext(); return DIR_ANDA;}
+/*DIR ANDB */ 
+( "andb" | "ANDB") {lexeme = yytext(); return DIR_ANDB;}
+/*DIR BCLR */ 
+( "bclr" | "BCLR") {lexeme = yytext(); return DIR_BCLR;}
+/*DIR BITA */ 
+( "bita" | "BITA") {lexeme = yytext(); return DIR_BITA;}
+/*DIR BITB */ 
+( "bitb" | "BITB") {lexeme = yytext(); return DIR_BITB;}
+/*DIR BRCLR */ 
+( "brclr" | "BRCLR") {lexeme = yytext(); return DIR_BRCLR;}
+/*DIR BRSET */ 
+( "brset" | "BRSET") {lexeme = yytext(); return DIR_BRSET;}
+/*DIR BSET */ 
+( "bset" | "BSET") {lexeme = yytext(); return DIR_BSET;}
+/*DIR CMPA */ 
+( "cmpa" | "CMPA") {lexeme = yytext(); return DIR_CMPA;}
+/*DIR CMPB */ 
+( "cmpb" | "CMPB") {lexeme = yytext(); return DIR_CMPB;}
+/*DIR CPD */ 
+( "cpd" | "CPD") {lexeme = yytext(); return DIR_CPD;}
+/*DIR CPX */ 
+( "cpx" | "CPX") {lexeme = yytext(); return DIR_CPX;}
+/*DIR CPY */ 
+( "cpy" | "CPY") {lexeme = yytext(); return DIR_CPY;}
+/*DIR EORA */ 
+( "eora" | "EORA") {lexeme = yytext(); return DIR_EORA;}
+/*DIR EORB */ 
+( "eorb" | "EORB") {lexeme = yytext(); return DIR_EORB;}
+/*DIR JSR */ 
+( "jsr" | "JSR") {lexeme = yytext(); return DIR_JSR;}
+/*DIR LDAA */ 
+( "ldaa" | "LDAA") {lexeme = yytext(); return DIR_LDAA;}
+/*DIR LDAB */ 
+( "ldab" | "LDAB") {lexeme = yytext(); return DIR_LDAB;}
+/*DIR LDD */ 
+( "ldd" | "LDD") {lexeme = yytext(); return DIR_LDD;}
+/*DIR LDS */ 
+( "lds" | "LDS") {lexeme = yytext(); return DIR_LDS;}
+/*DIR LDX */ 
+( "ldx" | "LDX") {lexeme = yytext(); return DIR_LDX;}
+/*DIR LDY */ 
+( "ldy" | "LDY") {lexeme = yytext(); return DIR_LDY;}
+/*DIR ORAA */ 
+( "oraa" | "ORAA") {lexeme = yytext(); return DIR_ORAA;}
+/*DIR ORAB */ 
+( "orab" | "ORAB") {lexeme = yytext(); return DIR_ORAB;}
+/*DIR SBCA */ 
+( "sbca" | "SBCA") {lexeme = yytext(); return DIR_SBCA;}
+/*DIR SBCB */ 
+( "sbcb" | "SBCB") {lexeme = yytext(); return DIR_SBCB;}
+/*DIR STAA */ 
+( "staa" | "STAA") {lexeme = yytext(); return DIR_STAA;}
+/*DIR STAB */ 
+( "stab" | "STAB") {lexeme = yytext(); return DIR_STAB;}
+/*DIR STD */ 
+( "std" | "STD") {lexeme = yytext(); return DIR_STD;}
+/*DIR STS */ 
+( "sts" | "STS") {lexeme = yytext(); return DIR_STS;}
+/*DIR STX */ 
+( "stx" | "STX") {lexeme = yytext(); return DIR_STX;}
+/*DIR STY */ 
+( "sty" | "STY") {lexeme = yytext(); return DIR_STY;}
+/*DIR SUBA */ 
+( "suba" | "SUBA") {lexeme = yytext(); return DIR_SUBA;}
+/*DIR SUBB */ 
+( "subb" | "SUBB") {lexeme = yytext(); return DIR_SUBB;}
+/*DIR SUBD */ 
+( "subd" | "SUBD") {lexeme = yytext(); return DIR_SUBD;}
 {espacio} {/*Ignore*/}
 ("//".*) {/*Ignore*/}
 ("\n") {return Linea;}
