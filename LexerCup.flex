@@ -171,63 +171,143 @@ END {return new Symbol(sym.END, yychar, yyline, yytext());}
 /*INH XGDY */
 ( "xgdy" | "XGDY" ) {return new Symbol(sym.INH_XGDY, yychar, yyline, yytext());}
 /*IMM ADCA */
-( "adca #" | "ADCA #" ) {return new Symbol(sym.IMM_ADCA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "adca #" | "ADCA #" ) {return new Symbol(sym.IMM_ADCA, yychar, yyline, yytext());}
 /*IMM ADCB */
-( "adcb #" | "ADCB #" ) {return new Symbol(sym.IMM_ADCB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "adcb #" | "ADCB #" ) {return new Symbol(sym.IMM_ADCB, yychar, yyline, yytext());}
 /*IMM ADDA */ 
-( "adda #" | "ADDA #" ) {return new Symbol(sym.IMM_ADDA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "adda #" | "ADDA #" ) {return new Symbol(sym.IMM_ADDA, yychar, yyline, yytext());}
 /*IMM ADDB */
-( "addb #" | "ADDB #" ) {return new Symbol(sym.IMM_ADDB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "addb #" | "ADDB #" ) {return new Symbol(sym.IMM_ADDB, yychar, yyline, yytext());}
 /*IMM ADDD */
-( "addd #" | "ADDD #" ) {return new Symbol(sym.IMM_ADDD, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "addd #" | "ADDD #" ) {return new Symbol(sym.IMM_ADDD, yychar, yyline, yytext());}
 /*IMM ANDA */
-( "anda #" | "ANDA #" ) {return new Symbol(sym.IMM_ANDA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "anda #" | "ANDA #" ) {return new Symbol(sym.IMM_ANDA, yychar, yyline, yytext());}
 /*IMM ANDB */ 
-( "andb #" | "ANDB #") {return new Symbol(sym.IMM_ANDB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "andb #" | "ANDB #") {return new Symbol(sym.IMM_ANDB, yychar, yyline, yytext());}
 /*IMM BITA */ 
-( "bita #" | "BITA #") {return new Symbol(sym.IMM_BITA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "bita #" | "BITA #") {return new Symbol(sym.IMM_BITA, yychar, yyline, yytext());}
 /*IMM BITB */ 
-( "bitb #" | "BITB #") {return new Symbol(sym.IMM_BITB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "bitb #" | "BITB #") {return new Symbol(sym.IMM_BITB, yychar, yyline, yytext());}
 /*IMM CMPA */ 
-( "cmpa #" | "CMPA #") {return new Symbol(sym.IMM_CMPA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "cmpa #" | "CMPA #") {return new Symbol(sym.IMM_CMPA, yychar, yyline, yytext());}
 /*IMM CMPB */ 
-( "cmpb #" | "CMPB #") {return new Symbol(sym.IMM_CMPB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "cmpb #" | "CMPB #") {return new Symbol(sym.IMM_CMPB, yychar, yyline, yytext());}
 /*IMM CPD */ 
-( "cpd #" | "CPD #") {return new Symbol(sym.IMM_CPD, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "cpd #" | "CPD #") {return new Symbol(sym.IMM_CPD, yychar, yyline, yytext());}
 /*IMM CPX */ 
-( "cpx #" | "CPX #") {return new Symbol(sym.IMM_CPX, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "cpx #" | "CPX #") {return new Symbol(sym.IMM_CPX, yychar, yyline, yytext());}
 /*IMM CPY */ 
-( "cpy #" | "CPY #") {return new Symbol(sym.IMM_CPY, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "cpy #" | "CPY #") {return new Symbol(sym.IMM_CPY, yychar, yyline, yytext());}
 /*IMM EORA */ 
-( "eora #" | "EORA #") {return new Symbol(sym.IMM_EORA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "eora #" | "EORA #") {return new Symbol(sym.IMM_EORA, yychar, yyline, yytext());}
 /*IMM EORB */ 
-( "eorb #" | "EORB #") {return new Symbol(sym.IMM_EORB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "eorb #" | "EORB #") {return new Symbol(sym.IMM_EORB, yychar, yyline, yytext());}
 /*IMM LDAA */ 
-( "ldaa #" | "LDAA #") {return new Symbol(sym.IMM_LDAA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "ldaa #" | "LDAA #") {return new Symbol(sym.IMM_LDAA, yychar, yyline, yytext());}
 /*IMM LDAB */ 
-( "ldab #" | "LDAB #") {return new Symbol(sym.IMM_LDAB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "ldab #" | "LDAB #") {return new Symbol(sym.IMM_LDAB, yychar, yyline, yytext());}
 /*IMM LDD */ 
-( "ldd #" | "LDD #") {return new Symbol(sym.IMM_LDD, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "ldd #" | "LDD #") {return new Symbol(sym.IMM_LDD, yychar, yyline, yytext());}
 /*IMM LDS */ 
-( "lds #" | "LDS #") {return new Symbol(sym.IMM_LDS, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "lds #" | "LDS #") {return new Symbol(sym.IMM_LDS, yychar, yyline, yytext());}
 /*IMM LDX */ 
-( "ldx #" | "LDX #") {return new Symbol(sym.IMM_LDX, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "ldx #" | "LDX #") {return new Symbol(sym.IMM_LDX, yychar, yyline, yytext());}
 /*IMM LDY */ 
-( "ldy #" | "LDY #") {return new Symbol(sym.IMM_LDY, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "ldy #" | "LDY #") {return new Symbol(sym.IMM_LDY, yychar, yyline, yytext());}
 /*IMM ORAA */ 
-( "oraa #" | "ORAA #") {return new Symbol(sym.IMM_ORAA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "oraa #" | "ORAA #") {return new Symbol(sym.IMM_ORAA, yychar, yyline, yytext());}
 /*IMM ORAB */ 
-( "orab #" | "ORAB #") {return new Symbol(sym.IMM_ORAB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "orab #" | "ORAB #") {return new Symbol(sym.IMM_ORAB, yychar, yyline, yytext());}
 /*IMM SBCA */ 
-( "sbca #" | "SBCA #") {return new Symbol(sym.IMM_SBCA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "sbca #" | "SBCA #") {return new Symbol(sym.IMM_SBCA, yychar, yyline, yytext());}
 /*IMM SBCB */ 
-( "sbcb #" | "SBCB #") {return new Symbol(sym.IMM_SBCB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "sbcb #" | "SBCB #") {return new Symbol(sym.IMM_SBCB, yychar, yyline, yytext());}
 /*IMM SUBA */ 
-( "suba #" | "SUBA #") {return new Symbol(sym.IMM_SUBA, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "suba #" | "SUBA #") {return new Symbol(sym.IMM_SUBA, yychar, yyline, yytext());}
 /*IMM SUBB */ 
-( "subb #" | "SUBB #") {return new Symbol(sym.IMM_SUBB, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext());}
+( "subb #" | "SUBB #") {return new Symbol(sym.IMM_SUBB, yychar, yyline, yytext());}
 /*IMM SUBD */ 
-( "subd #"(-"{D}+")" | "SUBD #"(-"{D}+")") {return new Symbol(sym.IMM_SUBD, yychar, yyline, yytext()); return new Symbol(sym.Gato, yychar, yyline, yytext()); return new Symbol(sym.Numero, yychar, yyline, yytext());}
+( "subd #" | "SUBD #") {return new Symbol(sym.IMM_SUBD, yychar, yyline, yytext());}
+/*DIR ADCA */
+( "adca" | "ADCA" ) {return new Symbol(sym.DIR_ADCA, yychar, yyline, yytext());}
+/*DIR ADCB */
+( "adcb" | "ADCB" ) {return new Symbol(sym.DIR_ADCB, yychar, yyline, yytext());}
+/*DIR ADDA */ 
+( "adda" | "ADDA" ) {return new Symbol(sym.DIR_ADDA, yychar, yyline, yytext());}
+/*DIR ADDB */
+( "addb" | "ADDB" ) {return new Symbol(sym.DIR_ADDB, yychar, yyline, yytext());}
+/*DIR ADDD */
+( "addd" | "ADDD" ) {return new Symbol(sym.DIR_ADDD, yychar, yyline, yytext());}
+/*DIR ANDA */
+( "anda" | "ANDA" ) {return new Symbol(sym.DIR_ANDA, yychar, yyline, yytext());}
+/*DIR ANDB */ 
+( "andb" | "ANDB") {return new Symbol(sym.DIR_ANDB, yychar, yyline, yytext());}
+/*DIR BCLR */ 
+( "bclr" | "BCLR") {return new Symbol(sym.DIR_BCLR, yychar, yyline, yytext());}
+/*DIR BITA */ 
+( "bita" | "BITA") {return new Symbol(sym.DIR_BITA, yychar, yyline, yytext());}
+/*DIR BITB */ 
+( "bitb" | "BITB") {return new Symbol(sym.DIR_BITB, yychar, yyline, yytext());}
+/*DIR BRCLR */ 
+( "brclr" | "BRCLR") {return new Symbol(sym.DIR_BRCLR, yychar, yyline, yytext());}
+/*DIR BRSET */ 
+( "brset" | "BRSET") {return new Symbol(sym.DIR_BRSET, yychar, yyline, yytext());}
+/*DIR BSET */ 
+( "bset" | "BSET") {return new Symbol(sym.DIR_BSET, yychar, yyline, yytext());}
+/*DIR CMPA */ 
+( "cmpa" | "CMPA") {return new Symbol(sym.DIR_CMPA, yychar, yyline, yytext());}
+/*DIR CMPB */ 
+( "cmpb" | "CMPB") {return new Symbol(sym.DIR_CMPB, yychar, yyline, yytext());}
+/*DIR CPD */ 
+( "cpd" | "CPD") {return new Symbol(sym.DIR_CPD, yychar, yyline, yytext());}
+/*DIR CPX */ 
+( "cpx" | "CPX") {return new Symbol(sym.DIR_CPX, yychar, yyline, yytext());}
+/*DIR CPY */ 
+( "cpy" | "CPY") {return new Symbol(sym.DIR_CPY, yychar, yyline, yytext());}
+/*DIR EORA */ 
+( "eora" | "EORA") {return new Symbol(sym.DIR_EORA, yychar, yyline, yytext());}
+/*DIR EORB */ 
+( "eorb" | "EORB") {return new Symbol(sym.DIR_EORB, yychar, yyline, yytext());}
+/*DIR JSR */ 
+( "jsr" | "JSR") {return new Symbol(sym.DIR_JSR, yychar, yyline, yytext());}
+/*DIR LDAA */ 
+( "ldaa" | "LDAA") {return new Symbol(sym.DIR_LDAA, yychar, yyline, yytext());}
+/*DIR LDAB */ 
+( "ldab" | "LDAB") {return new Symbol(sym.DIR_LDAB, yychar, yyline, yytext());}
+/*DIR LDD */ 
+( "ldd" | "LDD") {return new Symbol(sym.DIR_LDD, yychar, yyline, yytext());}
+/*DIR LDS */ 
+( "lds" | "LDS") {return new Symbol(sym.DIR_LDS, yychar, yyline, yytext());}
+/*DIR LDX */ 
+( "ldx" | "LDX") {return new Symbol(sym.DIR_LDX, yychar, yyline, yytext());}
+/*DIR LDY */ 
+( "ldy" | "LDY") {return new Symbol(sym.DIR_LDY, yychar, yyline, yytext());}
+/*DIR ORAA */ 
+( "oraa" | "ORAA") {return new Symbol(sym.DIR_ORAA, yychar, yyline, yytext());}
+/*DIR ORAB */ 
+( "orab" | "ORAB") {return new Symbol(sym.DIR_ORAB, yychar, yyline, yytext());}
+/*DIR SBCA */ 
+( "sbca" | "SBCA") {return new Symbol(sym.DIR_SBCA, yychar, yyline, yytext());}
+/*DIR SBCB */ 
+( "sbcb" | "SBCB") {return new Symbol(sym.DIR_SBCB, yychar, yyline, yytext());}
+/*DIR STAA */ 
+( "staa" | "STAA") {return new Symbol(sym.DIR_STAA, yychar, yyline, yytext());}
+/*DIR STAB */ 
+( "stab" | "STAB") {return new Symbol(sym.DIR_STAB, yychar, yyline, yytext());}
+/*DIR STD */ 
+( "std" | "STD") {return new Symbol(sym.DIR_STD, yychar, yyline, yytext());}
+/*DIR STS */ 
+( "sts" | "STS") {return new Symbol(sym.DIR_STS, yychar, yyline, yytext());}
+/*DIR STX */ 
+( "stx" | "STX") {return new Symbol(sym.DIR_STX, yychar, yyline, yytext());}
+/*DIR STY */ 
+( "sty" | "STY") {return new Symbol(sym.DIR_STY, yychar, yyline, yytext());}
+/*DIR SUBA */ 
+( "suba" | "SUBA") {return new Symbol(sym.DIR_SUBA, yychar, yyline, yytext());}
+/*DIR SUBB */ 
+( "subb" | "SUBB") {return new Symbol(sym.DIR_SUBB, yychar, yyline, yytext());}
+/*DIR SUBD */ 
+( "subd" | "SUBD") {return new Symbol(sym.DIR_SUBD, yychar, yyline, yytext());}
 {espacio} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "*".* {/*Ignore*/}
