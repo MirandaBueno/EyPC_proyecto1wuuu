@@ -3,6 +3,7 @@ import static codigo.Tokens.*;
 %%
 %class Lexer
 %type Tokens
+%caseless
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ ,\t,\r]+
@@ -298,6 +299,8 @@ END {lexeme=yytext(); return END;}
 ( "subb" | "SUBB") {lexeme = yytext(); return DIR_SUBB;}
 /*DIR SUBD */ 
 ( "subd" | "SUBD") {lexeme = yytext(); return DIR_SUBD;}
+/*INDX ADCA */
+
 {espacio} {/*Ignore*/}
 ("//".*) {/*Ignore*/}
 ("\n") {return Linea;}
