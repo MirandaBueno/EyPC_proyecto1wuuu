@@ -494,6 +494,326 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case DIR_SUBD:
                     resultado += "  93\t" + lexer.lexeme + "\n";
                     break;
+                
+                
+                case INDX_ADCA:
+                        resultado+=" A9\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ADCA:
+                        resultado+=" 18A9\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ADCB:
+                        resultado+=" E9\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ADCB:
+                        resultado+=" 18E9\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ADDA:
+                        resultado+=" AB\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ADDA:
+                        resultado+=" 18AB\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ADDB:
+                        resultado+=" EB\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ADDB:
+                        resultado+=" 18EB\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ADDD:
+                        resultado+=" E3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ADDD:
+                        resultado+=" 18E3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ANDA:
+                        resultado+=" B4\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ANDA:
+                        resultado+=" 18A4\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ANDB:
+                        resultado+=" E4\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ANDB:
+                        resultado+=" 18E4\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ASL:
+                        resultado+=" 68\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ASL:
+                        resultado+=" 1868\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ASR:
+                        resultado+=" 67\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ASR:
+                        resultado+=" 1867\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_BCLR:
+                        resultado+=" 1D\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BCLR:
+                        resultado+=" 181D\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_BITA:
+                        resultado+=" A5\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BITA:
+                        resultado+=" 18A5\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_BITB:
+                        resultado+=" E5\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BITB:
+                        resultado+=" 18E5\t"+lexer.lexeme+"\n";
+                        break;  
+                case INDX_BRCLR:
+                        resultado+=" 1F\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BRCLR:
+                        resultado+=" 181F\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_BRSET:
+                        resultado+=" 1E\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BRSET:
+                        resultado+=" 181E\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_BSET:
+                        resultado+=" 1C\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_BSET:
+                        resultado+=" 181C\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CLR:
+                        resultado+=" 6F\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CLR:
+                        resultado+=" 186F\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CMPA:
+                        resultado+=" A1\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CMPA:
+                        resultado+=" 18A1\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CMPB:
+                        resultado+=" E1\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CMPB:
+                        resultado+=" 18E1\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_COM:
+                        resultado+=" 63\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_COM:
+                        resultado+=" 1863\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CPD:
+                        resultado+=" 1AA3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CPX:
+                        resultado+=" AC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_CPY:
+                        resultado+=" 1AAC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_DEC:
+                        resultado+=" 6A\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_EORA:
+                        resultado+=" A8\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_EORB:
+                        resultado+=" E8\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_INC:
+                        resultado+=" 6C\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_JMP:
+                        resultado+=" 6E\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_JSR:
+                        resultado+=" AD\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDAA:
+                        resultado+=" A6\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDAB:
+                        resultado+=" E6\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDD:
+                        resultado+=" EC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDS:
+                        resultado+=" AE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDX:
+                        resultado+=" EE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LDY:
+                        resultado+=" 1AEE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LSL:
+                        resultado+=" 68\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_LSR:
+                        resultado+=" 64\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_NEG:
+                        resultado+=" 60\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ORAA:
+                        resultado+=" AA\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ORAB:
+                        resultado+=" EA\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ROL:
+                        resultado+=" 69\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_ROR:
+                        resultado+=" 66\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_SBCA:
+                        resultado+=" A2\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_SBCB:
+                        resultado+=" E2\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STAA:
+                        resultado+=" A7\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STAB:
+                        resultado+=" E7\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STD:
+                        resultado+=" ED\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STS:
+                        resultado+=" AF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STX:
+                        resultado+=" EF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_STY:
+                        resultado+=" 1AEF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_SUBA:
+                        resultado+=" A0\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_SUBB:
+                        resultado+=" E0\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_SUBD:
+                        resultado+=" A3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDX_TST:
+                        resultado+=" 6D\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CPD:
+                        resultado+=" CDA3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CPX:
+                        resultado+=" CDAC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_CPY:
+                        resultado+=" 18AC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_DEC:
+                        resultado+=" 186A\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_EORA:
+                        resultado+=" 18A8\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_EORB:
+                        resultado+=" 18E8\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_INC:
+                        resultado+=" 186C\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_JMP:
+                        resultado+=" 186E\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_JSR:
+                        resultado+=" 18AD\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDAA:
+                        resultado+=" 18A6\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDAB:
+                        resultado+=" 18E6\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDD:
+                        resultado+=" 18EC\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDS:
+                        resultado+=" 18AE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDX:
+                        resultado+=" CDEE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LDY:
+                        resultado+=" 18EE\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LSL:
+                        resultado+=" 1868\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_LSR:
+                        resultado+=" 1864\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_NEG:
+                        resultado+=" 1860\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ORAA:
+                        resultado+=" 18AA\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ORAB:
+                        resultado+=" 18EA\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ROL:
+                        resultado+=" 1869\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_ROR:
+                        resultado+=" 1866\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_SBCA:
+                        resultado+=" 18A2\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_SBCB:
+                        resultado+=" 18E2\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STAA:
+                        resultado+=" 18A7\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STAB:
+                        resultado+=" 18E7\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STD:
+                        resultado+=" 18ED\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STS:
+                        resultado+=" 18AF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STX:
+                        resultado+=" CDEF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_STY:
+                        resultado+=" 18EF\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_SUBA:
+                        resultado+=" 18A0\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_SUBB:
+                        resultado+=" 18E0\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_SUBD:
+                        resultado+=" 18A3\t"+lexer.lexeme+"\n";
+                        break;
+                case INDY_TST:
+                        resultado+=" 186D\t"+lexer.lexeme+"\n";
+                        break;
                 case NUMERO:
                     resultado += " " + lexer.lexeme + "\n";
                     break;
