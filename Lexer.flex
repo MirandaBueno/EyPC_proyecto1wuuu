@@ -162,9 +162,13 @@ END {lexeme=yytext(); return END;}
 /*INH XGDY */
 ( "xgdy" | "XGDY" ) {lexeme = yytext(); return INH_XGDY;}
 /*IMM ADCA */
-( "adca #" | "ADCA #" ) {lexeme = yytext(); return IMM_ADCA;}
+( "adca"{espacio}+"#$"{H}{2})|("adca"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADCA_HEXA;}
+( "adca"{espacio}+"#$"{D}{2,4}) {lexeme = yytext(); return IMM_ADCA_DEC;}
+( "adca"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADCA_CHAR;}
 /*IMM ADCB */
-( "adcb #" | "ADCB #" ) {lexeme = yytext(); return IMM_ADCB;}
+( "adcb"{espacio}+"#$"{H}{2}) | ("adcb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADCB_HEXA;}
+( "adcb"{espacio}+"#$"{D}{2,4}) {lexeme = yytext(); return IMM_ADCB_DEC;}
+( "adcb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADCB_CHAR;}
 /*IMM ADDA */ 
 ( "adda #" | "ADDA #" ) {lexeme = yytext(); return IMM_ADDA;}
 /*IMM ADDB */
@@ -220,9 +224,11 @@ END {lexeme=yytext(); return END;}
 /*IMM SUBD */ 
 ( "subd #"| "SUBD #" {lexeme = yytext(); return IMM_SUBD;}
 /*DIR ADCA */
-( "adca" | "ADCA" ) {lexeme = yytext(); return DIR_ADCA;}
+("adca"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCA_HEXA;}
+("adca"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADCA_DEC;}
 /*DIR ADCB */
-( "adcb" | "ADCB" ) {lexeme = yytext(); return DIR_ADCB;}
+("adcb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCB_HEXA;}
+("adcb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADCB_DEC;}
 /*DIR ADDA */ 
 ( "adda" | "ADDA" ) {lexeme = yytext(); return DIR_ADDA;}
 /*DIR ADDB */
@@ -413,14 +419,18 @@ END {lexeme=yytext(); return END;}
 "subd"{espacio}+"$"{H}{2}",Y" {lexeme=yytext(); return INDY_SUBD;}
 "tst"{espacio}+"$"{H}{2}",Y" {lexeme=yytext(); return INDY_TST;}
 
-{espacio} {/*Ignore*/}
-("//".*) {/*Ignore*/}
-("\n") {return Linea;}
-("*".*) {/*Ignore*/}
-("#") {lexeme=yytext(); return Gato;}
-("'") {lexeme=yytext(); return Apostrofe;}
-("$") {lexeme=yytext(); return SignoPeso;}
-("ORG") {lexeme=yytext(); return ORG;}
-{L}({L}|{D})* {lexeme=yytext(); return Mnemonico;}
+{espacio} {return Espacio;}
+("\n")  {return Linea;}
+"*".* {lexeme=yytext(); return Comentario;}
+{L}({L}|{D})* {lexeme=yytext(); return Etiq_Var_Instrucc;}
+"$"{H}{4} {lexeme=yytext(); return Org_Equ;}
+"#$"(([0-9]|[A-F]){2,4}) {lexeme=yytext(); return NumeroHexaIMM;}
+"#"([0-9]{2,4}) {lexeme=yytext(); return NumeroDecIMM;}
+"#'"{L} {lexeme=yytext(); return CharIMM;}
+"$"(([0-9]|[A-F]){2}) {lexeme=yytext(); return NumeroHexaDIR;}
+[0-9]{1,5} {lexeme=yytext(); return NumeroDecDIR_EXT;}
+"$"(([0-9]|[A-F]){3,4}) {lexeme=yytext(); return NumeroHexaEXT;}
+"$"(([0-9]|[A-F]){2})",X" {lexeme=yytext(); return NumeroHexaINDX;}
+"$"(([0-9]|[A-F]){2})",Y" {lexeme=yytext(); return NumeroHexaINDY;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
  . {return ERROR;}
