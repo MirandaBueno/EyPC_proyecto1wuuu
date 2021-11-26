@@ -6,7 +6,7 @@ import static codigo.Tokens.*;
 %caseless
 L=[a-zA-Z_]
 D=[0-9]
-H =[0-9]|[A-F_]
+H =[0-9A-F]
 espacio=[ ,\t,\r]
 %{
     public String lexeme;
@@ -172,59 +172,114 @@ END {lexeme=yytext(); return END;}
 ( "adcb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADCB_DEC;}
 ( "adcb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADCB_CHAR;}
 /*IMM ADDA */ 
-( "adda #" | "ADDA #" ) {lexeme = yytext(); return IMM_ADDA;}
+( "adda"{espacio}+"#$"{H}{2}) | ("adda"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADDA_HEXA;}
+( "adda"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADDA_DEC;}
+( "adda"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADDA_CHAR;}
 /*IMM ADDB */
-( "addb #" | "ADDB #" ) {lexeme = yytext(); return IMM_ADDB;}
+( "addb"{espacio}+"#$"{H}{2}) | ("addb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADDB_HEXA;}
+( "addb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADDB_DEC;}
+( "addb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADDB_CHAR;}
 /*IMM ADDD */
-( "addd #" | "ADDD #" ) {lexeme = yytext(); return IMM_ADDD;}
+( "addd"{espacio}+"#$"{H}{2}) | ("addd"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADDD_HEXA;}
+( "addd"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADDD_DEC;}
+( "addd"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADDD_CHAR;}
 /*IMM ANDA */
-( "anda #" | "ANDA #" ) {lexeme = yytext(); return IMM_ANDA;}
+( "anda"{espacio}+"#$"{H}{2}) | ("anda"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ANDA_HEXA;}
+( "anda"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ANDA_DEC;}
+( "anda"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ANDA_CHAR;}
 /*IMM ANDB */ 
-( "andb #" | "ANDB #") {lexeme = yytext(); return IMM_ANDB;}
+( "andb"{espacio}+"#$"{H}{2}) | ("andb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ANDB_HEXA;}
+( "andb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ANDB_DEC;}
+( "andb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ANDB_CHAR;}
 /*IMM BITA */ 
-( "bita #" | "BITA #") {lexeme = yytext(); return IMM_BITA;}
+( "bita"{espacio}+"#$"{H}{2}) | ("bita"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_BITA_HEXA;}
+( "bita"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_BITA_DEC;}
+( "bita"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_BITA_CHAR;}
 /*IMM BITB */ 
-( "bitb #" | "BITB #") {lexeme = yytext(); return IMM_BITB;}
+( "bitb"{espacio}+"#$"{H}{2}) | ("bitb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_BITB_HEXA;}
+( "bitb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_BITB_DEC;}
+( "bitb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_BITB_CHAR;}
 /*IMM CMPA */ 
-( "cmpa #" | "CMPA #") {lexeme = yytext(); return IMM_CMPA;}
+( "cmpa"{espacio}+"#$"{H}{2}) | ("cmpa"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_CMPA_HEXA;}
+( "cmpa"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_CMPA_DEC;}
+( "cmpa"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_CMPA_CHAR;}
 /*IMM CMPB */ 
-( "cmpb #" | "CMPB #") {lexeme = yytext(); return IMM_CMPB;}
+( "cmpb"{espacio}+"#$"{H}{2}) | ("cmpb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_CMPB_HEXA;}
+( "cmpb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_CMPB_DEC;}
+( "cmpb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_CMPB_CHAR;}
 /*IMM CPD */ 
-( "cpd #" | "CPD #") {lexeme = yytext(); return IMM_CPD;}
+( "cpd"{espacio}+"#$"{H}{2}) | ("cpd"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_CPD_HEXA;}
+( "cpd"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_CPD_DEC;}
+( "cpd"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_CPD_CHAR;}
 /*IMM CPX */ 
-( "cpx #" | "CPX #") {lexeme = yytext(); return IMM_CPX;}
+( "cpx"{espacio}+"#$"{H}{2}) | ("cpx"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_CPX_HEXA;}
+( "cpx"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_CPX_DEC;}
+( "cpx"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_CPX_CHAR;}
 /*IMM CPY */ 
-( "cpy #" | "CPY #") {lexeme = yytext(); return IMM_CPY;}
+( "cpy"{espacio}+"#$"{H}{2}) | ("cpy"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_CPY_HEXA;}
+( "cpy"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_CPY_DEC;}
+( "cpy"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_CPY_CHAR;}
 /*IMM EORA */ 
-( "eora #" | "EORA #") {lexeme = yytext(); return IMM_EORA;}
+( "eora"{espacio}+"#$"{H}{2}) | ("eora"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_EORA_HEXA;}
+( "eora"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_EORA_DEC;}
+( "eora"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_EORA_CHAR;}
 /*IMM EORB */ 
-( "eorb #" | "EORB #") {lexeme = yytext(); return IMM_EORB;}
+( "eorb"{espacio}+"#$"{H}{2}) | ("eorb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_EORB_HEXA;}
+( "eorb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_EORB_DEC;}
+( "eorb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_EORB_CHAR;}
 /*IMM LDAA */ 
-( "ldaa #" | "LDAA #") {lexeme = yytext(); return IMM_LDAA;}
+( "ldaa"{espacio}+"#$"{H}{2}) | ("ldda"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDAA_HEXA;}
+( "ldaa"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDAA_DEC;}
+( "ldaa"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDAA_CHAR;}
 /*IMM LDAB */ 
-( "ldab #" | "LDAB #") {lexeme = yytext(); return IMM_LDAB;}
+( "ldab"{espacio}+"#$"{H}{2}) | ("ldab"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDAB_HEXA;}
+( "ldab"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDAB_DEC;}
+( "ldab"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDAB_CHAR;}
 /*IMM LDD */ 
-( "ldd #" | "LDD #") {lexeme = yytext(); return IMM_LDD;}
+( "ldd"{espacio}+"#$"{H}{2}) | ("ldd"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDD_HEXA;}
+( "ldd"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDD_DEC;}
+( "ldd"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDD_CHAR;}
 /*IMM LDS */ 
-( "lds #" | "LDS #") {lexeme = yytext(); return IMM_LDS;}
+( "lds"{espacio}+"#$"{H}{2}) | ("lds"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDS_HEXA;}
+( "lds"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDS_DEC;}
+( "lds"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDS_CHAR;}
 /*IMM LDX */ 
-( "ldx #" | "LDX #") {lexeme = yytext(); return IMM_LDX;}
+( "ldx"{espacio}+"#$"{H}{2}) | ("ldx"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDX_HEXA;}
+( "ldx"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDX_DEC;}
+( "ldx"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDX_CHAR;}
 /*IMM LDY */ 
-( "ldy #" | "LDY #") {lexeme = yytext(); return IMM_LDY;}
+( "ldy"{espacio}+"#$"{H}{2}) | ("ldy"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_LDY_HEXA;}
+( "ldy"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_LDY_DEC;}
+( "ldy"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_LDY_CHAR;}
 /*IMM ORAA */ 
-( "oraa #" | "ORAA #") {lexeme = yytext(); return IMM_ORAA;}
+( "oraa"{espacio}+"#$"{H}{2}) | ("oraa"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ORAA_HEXA;}
+( "oraa"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ORAA_DEC;}
+( "oraa"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ORAA_CHAR;}
 /*IMM ORAB */ 
-( "orab #" | "ORAB #") {lexeme = yytext(); return IMM_ORAB;}
+( "orab"{espacio}+"#$"{H}{2}) | ("orab"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ORAB_HEXA;}
+( "orab"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ORAB_DEC;}
+( "orab"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ORAB_CHAR;}
 /*IMM SBCA */ 
-( "sbca #" | "SBCA #") {lexeme = yytext(); return IMM_SBCA;}
+( "sbca"{espacio}+"#$"{H}{2}) | ("sbca"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_SBCA_HEXA;}
+( "sbca"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_SBCA_DEC;}
+( "sbca"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_SBCA_CHAR;}
 /*IMM SBCB */ 
-( "sbcb #" | "SBCB #") {lexeme = yytext(); return IMM_SBCB;}
+( "sbcb"{espacio}+"#$"{H}{2}) | ("sbcb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_SBCB_HEXA;}
+( "sbcb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_SBCB_DEC;}
+( "sbcb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_SBCB_CHAR;}
 /*IMM SUBA */ 
-( "suba #" | "SUBA #") {lexeme = yytext(); return IMM_SUBA;}
+( "suba"{espacio}+"#$"{H}{2}) | ("suba"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_SUBA_HEXA;}
+( "suba"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_SUBA_DEC;}
+( "suba"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_SUBA_CHAR;}
 /*IMM SUBB */ 
-( "subb #" | "SUBB #") {lexeme = yytext(); return IMM_SUBB;}
+( "subb"{espacio}+"#$"{H}{2}) | ("subb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_SUBB_HEXA;}
+( "subb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_SUBB_DEC;}
+( "subb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_SUBB_CHAR;}
 /*IMM SUBD */ 
-( "subd #"| "SUBD #" {lexeme = yytext(); return IMM_SUBD;}
+( "subd"{espacio}+"#$"{H}{2}) | ("subd"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_SUBD_HEXA;}
+( "subd"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_SUBD_DEC;}
+( "subd"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_SUBD_CHAR;}
+
 
 /*DIR ADCA */
 ("adca"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCA_HEXA;}
@@ -232,92 +287,114 @@ END {lexeme=yytext(); return END;}
 /*DIR ADCB */
 ("adcb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCB_HEXA;}
 ("adcb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADCB_DEC;}
-/*DIR ADDA */ 
-( "adda" | "ADDA" ) {lexeme = yytext(); return DIR_ADDA;}
-/*DIR ADDB */
-( "addb" | "ADDB" ) {lexeme = yytext(); return DIR_ADDB;}
-/*DIR ADDD */
-( "addd" | "ADDD" ) {lexeme = yytext(); return DIR_ADDD;}
-/*DIR ANDA */
-( "anda" | "ANDA" ) {lexeme = yytext(); return DIR_ANDA;}
+/*DIR ADDD */ 
+("addd"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADDD_HEXA;}
+("addd"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADDD_DEC;}
+/*DIR ANDA */ 
+("anda"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ANDA_HEXA;}
+("anda"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ANDA_DEC;}
 /*DIR ANDB */ 
-( "andb" | "ANDB") {lexeme = yytext(); return DIR_ANDB;}
+("andb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ANDB_HEXA;}
+("andb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ANDB_DEC;}
 /*DIR BCLR */ 
-( "bclr" | "BCLR") {lexeme = yytext(); return DIR_BCLR;}
+("bclr"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BCLR_HEXA;}
+("bclr"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BCLR_DEC;}
 /*DIR BITA */ 
-( "bita" | "BITA") {lexeme = yytext(); return DIR_BITA;}
+("bita"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BITA_HEXA;}
+("bita"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BITA_DEC;}
 /*DIR BITB */ 
-( "bitb" | "BITB") {lexeme = yytext(); return DIR_BITB;}
+("bitb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BITB_HEXA;}
+("bitb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BITB_DEC;}
 /*DIR BRCLR */ 
-( "brclr" | "BRCLR") {lexeme = yytext(); return DIR_BRCLR;}
+("brclr"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BRCLR_HEXA;}
+("brclr"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BRCLR_DEC;}
 /*DIR BRSET */ 
-( "brset" | "BRSET") {lexeme = yytext(); return DIR_BRSET;}
+("brset"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BRSET_HEXA;}
+("brset"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BRSET_DEC;}
 /*DIR BSET */ 
-( "bset" | "BSET") {lexeme = yytext(); return DIR_BSET;}
+("bset"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_BSET_HEXA;}
+("bset"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_BSET_DEC;}
 /*DIR CMPA */ 
-( "cmpa" | "CMPA") {lexeme = yytext(); return DIR_CMPA;}
+("cmpa"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_CMPA_HEXA;}
+("cmpa"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_CMPA_DEC;}
 /*DIR CMPB */ 
-( "cmpb" | "CMPB") {lexeme = yytext(); return DIR_CMPB;}
+("cmpb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCA_HEXA;}
+("cmpb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADCA_DEC;}
 /*DIR CPD */ 
-( "cpd" | "CPD") {lexeme = yytext(); return DIR_CPD;}
+("cpd"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_CPD_HEXA;}
+("cpd"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_CPD_DEC;}
 /*DIR CPX */ 
-( "cpx" | "CPX") {lexeme = yytext(); return DIR_CPX;}
+("cpx"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_CPX_HEXA;}
+("cpx"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_CPX_DEC;}
 /*DIR CPY */ 
-( "cpy" | "CPY") {lexeme = yytext(); return DIR_CPY;}
+("cpy"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_CPY_HEXA;}
+("cpy"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_CPY_DEC;}
 /*DIR EORA */ 
-( "eora" | "EORA") {lexeme = yytext(); return DIR_EORA;}
+("eora"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_EORA_HEXA;}
+("eora"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_EORA_DEC;}
 /*DIR EORB */ 
-( "eorb" | "EORB") {lexeme = yytext(); return DIR_EORB;}
+("eorb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_EORB_HEXA;}
+("eorb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_EORB_DEC;}
 /*DIR JSR */ 
-( "jsr" | "JSR") {lexeme = yytext(); return DIR_JSR;}
+("jsr"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_JSR_HEXA;}
+("jsr"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_JSR_DEC;}
 /*DIR LDAA */ 
-( "ldaa" | "LDAA") {lexeme = yytext(); return DIR_LDAA;}
+("ldaa"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDAA_HEXA;}
+("ldaa"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDAA_DEC;}
 /*DIR LDAB */ 
-( "ldab" | "LDAB") {lexeme = yytext(); return DIR_LDAB;}
+("ldab"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDAB_HEXA;}
+("ldab"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDAB_DEC;}
 /*DIR LDD */ 
-( "ldd" | "LDD") {lexeme = yytext(); return DIR_LDD;}
+("ldd"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDD_HEXA;}
+("ldd"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDD_DEC;}
 /*DIR LDS */ 
-( "lds" | "LDS") {lexeme = yytext(); return DIR_LDS;}
+("lds"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDS_HEXA;}
+("lds"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDS_DEC;}
 /*DIR LDX */ 
-( "ldx" | "LDX") {lexeme = yytext(); return DIR_LDX;}
+("ldx"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDX_HEXA;}
+("ldx"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDX_DEC;}
 /*DIR LDY */ 
-( "ldy" | "LDY") {lexeme = yytext(); return DIR_LDY;}
+("ldy"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_LDY_HEXA;}
+("ldy"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_LDY_DEC;}
 /*DIR ORAA */ 
-( "oraa" | "ORAA") {lexeme = yytext(); return DIR_ORAA;}
+("oraa"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ORAA_HEXA;}
+("oraa"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ORAA_DEC;}
 /*DIR ORAB */ 
-( "orab" | "ORAB") {lexeme = yytext(); return DIR_ORAB;}
+("orab"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ORAB_HEXA;}
+("orab"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ORAB_DEC;}
 /*DIR SBCA */ 
-( "sbca" | "SBCA") {lexeme = yytext(); return DIR_SBCA;}
+("sbca"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_SBCA_HEXA;}
+("sbca"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_SBCA_DEC;}
 /*DIR SBCB */ 
-( "sbcb" | "SBCB") {lexeme = yytext(); return DIR_SBCB;}
+("sbcb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_SBCB_HEXA;}
+("sbcb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_SBCB_DEC;}
 /*DIR STAA */ 
-( "staa" | "STAA") {lexeme = yytext(); return DIR_STAA;}
+("staa"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STAA_HEXA;}
+("staa"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STAA_DEC;}
 /*DIR STAB */ 
-( "stab" | "STAB") {lexeme = yytext(); return DIR_STAB;}
+("stab"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STAB_HEXA;}
+("stab"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STAB_DEC;}
 /*DIR STD */ 
-( "std" | "STD") {lexeme = yytext(); return DIR_STD;}
+("std"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STD_HEXA;}
+("std"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STD_DEC;}
 /*DIR STS */ 
-( "sts" | "STS") {lexeme = yytext(); return DIR_STS;}
+("sts"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STS_HEXA;}
+("sts"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STS_DEC;}
 /*DIR STX */ 
-( "stx" | "STX") {lexeme = yytext(); return DIR_STX;}
+("stx"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STX_HEXA;}
+("stx"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STX_DEC;}
 /*DIR STY */ 
-( "sty" | "STY") {lexeme = yytext(); return DIR_STY;}
+("sty"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_STY_HEXA;}
+("sty"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_STY_DEC;}
 /*DIR SUBA */ 
-( "suba" | "SUBA") {lexeme = yytext(); return DIR_SUBA;}
+("suba"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_SUBA_HEXA;}
+("suba"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_SUBA_DEC;}
 /*DIR SUBB */ 
-( "subb" | "SUBB") {lexeme = yytext(); return DIR_SUBB;}
+("subb"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_SUBB_HEXA;}
+("subb"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_SUBB_DEC;}
 /*DIR SUBD */ 
-( "subd" | "SUBD") {lexeme = yytext(); return DIR_SUBD;}
-
-//ASÍ ES COMO LO PUSE
-/*INDX ADCA */
-("adca"{espacio}+"$"{H}{2}",X") {lexeme=yytext(); return INDX_ADCA;}
-/*INDX ADCB */
-"adcb"{espacio}+"$"{H}{2}",X" {lexeme=yytext(); return INDX_ADCB;}
-/*INDY ADCA */
-"adca"{espacio}+"$"{D}{2}",Y" {lexeme=yytext(); return INDY_ADCA;}
-/*INDY ADCB */
-"adcb"{espacio}+"$"{H}{2}",Y" {lexeme=yytext(); return INDY_ADCB;}
+("subd"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_SUBD_HEXA;}
+("subd"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_SUBD_DEC;}
 
 /*INDX ADCA */
 {espacio}+"adca"{espacio}+"$"{H}{2}",X" {lexeme=yytext(); return INDX_ADCA;}
