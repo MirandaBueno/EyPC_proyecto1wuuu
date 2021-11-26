@@ -38,7 +38,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         String mascara;
         String expr = (String) txtResultado.getText();
         Lexer lexer = new Lexer(new StringReader(expr));
-        String resultado = "LINEA " + cont;// + "\t\tSIMBOLO\n";
+        String resultado="  "+cont+": ";
         while (true) {
             Tokens token = lexer.yylex();
             if (token == null) {
@@ -48,7 +48,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             switch (token) {
                 case Linea:
                     cont++;
-                    resultado += "LINEA " + cont + "\n";
+                    resultado +="\n"+  cont + ": ";
+                    break;
+                case Comentario:
+                    resultado+=" \t\t\t"+lexer.lexeme;
                     break;
                 case Gato:
                     resultado += "  " + lexer.lexeme + "\n";
@@ -60,7 +63,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "  " + lexer.lexeme; //+ "\n";
                     break;
                 case ORG:
-                    resultado += "  < ORG>\t" + lexer.lexeme + "\n";
+                    operando=operandoH4(lexer.lexeme);
+                    resultado+="           ("+operando+")\t : \t"+lexer.lexeme.toUpperCase();
+                    break;
+                case EQU:
+                    operando=operandoH4(lexer.lexeme);
+                    resultado+="           ("+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
                     break;
                 case Opcode:
                     resultado += "  <Opcode>\t" + lexer.lexeme + "\n";
