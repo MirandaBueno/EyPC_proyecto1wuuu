@@ -512,8 +512,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case DIR_SUBD:
                     resultado += "  93\t" + lexer.lexeme + "\n";
                     break;
-                
-                
+             
                 case INDX_ADCA:
                         resultado+=" A9\t"+lexer.lexeme+"\n";
                         break;
