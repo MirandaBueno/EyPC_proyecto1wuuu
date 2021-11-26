@@ -4,8 +4,9 @@ import static codigo.Tokens.*;
 %class Lexer
 %type Tokens
 %caseless
-L=[a-zA-Z_]+
-D=[0-9]+
+L=[a-zA-Z_]
+D=[0-9]
+H =[0-9][A-F_]
 espacio=[ ,\t,\r]+
 %{
     public String lexeme;
@@ -161,13 +162,14 @@ END {lexeme=yytext(); return END;}
 ( "xgdx" | "XGDX" ) {lexeme = yytext(); return INH_XGDX;}
 /*INH XGDY */
 ( "xgdy" | "XGDY" ) {lexeme = yytext(); return INH_XGDY;}
+
 /*IMM ADCA */
 ( "adca"{espacio}+"#$"{H}{2})|("adca"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADCA_HEXA;}
-( "adca"{espacio}+"#$"{D}{2,4}) {lexeme = yytext(); return IMM_ADCA_DEC;}
+( "adca"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADCA_DEC;}
 ( "adca"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADCA_CHAR;}
 /*IMM ADCB */
 ( "adcb"{espacio}+"#$"{H}{2}) | ("adcb"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADCB_HEXA;}
-( "adcb"{espacio}+"#$"{D}{2,4}) {lexeme = yytext(); return IMM_ADCB_DEC;}
+( "adcb"{espacio}+"#"{D}{2,4}) {lexeme = yytext(); return IMM_ADCB_DEC;}
 ( "adcb"{espacio}+"#'".*{1}) {lexeme = yytext(); return IMM_ADCB_CHAR;}
 /*IMM ADDA */ 
 ( "adda #" | "ADDA #" ) {lexeme = yytext(); return IMM_ADDA;}
@@ -306,7 +308,16 @@ END {lexeme=yytext(); return END;}
 ( "subb" | "SUBB") {lexeme = yytext(); return DIR_SUBB;}
 /*DIR SUBD */ 
 ( "subd" | "SUBD") {lexeme = yytext(); return DIR_SUBD;}
+
+//ASÍ ES COMO LO PUSE
 /*INDX ADCA */
+("adca"{espacio}+"$"{H}{2}",X") {lexeme=yytext(); return INDX_ADCA;}
+/*INDX ADCB */
+"adcb"{espacio}+"$"{H}{2}",X" {lexeme=yytext(); return INDX_ADCB;}
+/*INDY ADCA */
+"adca"{espacio}+"$"{D}{2}",Y" {lexeme=yytext(); return INDY_ADCA;}
+/*INDY ADCB */
+"adcb"{espacio}+"$"{H}{2}",Y" {lexeme=yytext(); return INDY_ADCB;}
 
 /*INDX ADCA */
 "adca"{espacio}+"$"{H}{2}",X" {lexeme=yytext(); return INDX_ADCA;}
