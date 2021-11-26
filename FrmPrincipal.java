@@ -32,7 +32,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     private void analizarLexico() throws IOException{
         int cont = 1;
-        
+        String loc="8000";
+        String operando;
+        String opCode;
+        String mascara;
         String expr = (String) txtResultado.getText();
         Lexer lexer = new Lexer(new StringReader(expr));
         String resultado = "LINEA " + cont;// + "\t\tSIMBOLO\n";
@@ -514,324 +517,648 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     break;
              
                 case INDX_ADCA:
-                        String operando=operandoH2(lexer.lexeme);
-                        String opCode=opcode(lexer.lexeme,operando);
-                        resultado+=loc+" (A9"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A9"+operando+")\t\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ADCA:
-                        resultado+=" 18A9\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A9"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ADCB:
-                        resultado+=" E9\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E9"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ADCB:
-                        resultado+=" 18E9\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E9"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ADDA:
-                        resultado+=" AB\t"+lexer.lexeme+"\n";
+                    operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AB"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ADDA:
-                        resultado+=" 18AB\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AB"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ADDB:
-                        resultado+=" EB\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (EB"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ADDB:
-                        resultado+=" 18EB\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18EB"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ADDD:
-                        resultado+=" E3\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ADDD:
-                        resultado+=" 18E3\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ANDA:
-                        resultado+=" B4\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (B4"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ANDA:
-                        resultado+=" 18A4\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A4"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ANDB:
-                        resultado+=" E4\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E4"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ANDB:
-                        resultado+=" 18E4\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E4"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ASL:
-                        resultado+=" 68\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (68"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ASL:
-                        resultado+=" 1868\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1868"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_ASR:
-                        resultado+=" 67\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (67"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_ASR:
-                        resultado+=" 1867\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1867"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_BCLR:
-                        resultado+=" 1D\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (1D"+operando+mascara+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BCLR:
-                        resultado+=" 181D\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (181D"+operando+mascara+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_BITA:
-                        resultado+=" A5\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A5"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BITA:
-                        resultado+=" 18A5\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A5"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_BITB:
-                        resultado+=" E5\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E5"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BITB:
-                        resultado+=" 18E5\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E5"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;  
                 case INDX_BRCLR:
-                        resultado+=" 1F\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (1F"+operando+mascara+"FC)\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BRCLR:
-                        resultado+=" 181F\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (181F"+operando+mascara+"FC)\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_BRSET:
-                        resultado+=" 1E\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (1E"+operando+mascara+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BRSET:
-                        resultado+=" 181E\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (181E"+operando+mascara+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_BSET:
-                        resultado+=" 1C\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (1C"+operando+mascara+"FC)\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_BSET:
-                        resultado+=" 181C\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        mascara=operandoH2(lexer.lexeme.substring(lexer.lexeme.indexOf(",")));
+                        resultado+=loc+" (181C"+operando+mascara+"FC)\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_CLR:
-                        resultado+=" 6F\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (6F"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_CLR:
-                        resultado+=" 186F\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (186F"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_CMPA:
-                        resultado+=" A1\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A1"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_CMPA:
-                        resultado+=" 18A1\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A1"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_CMPB:
-                        resultado+=" E1\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E1"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_CMPB:
-                        resultado+=" 18E1\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E1"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_COM:
-                        resultado+=" 63\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (63"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_COM:
-                        resultado+=" 1863\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1863"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_CPD:
-                        resultado+=" 1AA3\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1AA3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_CPX:
-                        resultado+=" AC\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_CPY:
-                        resultado+=" 1AAC\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1AAC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_DEC:
-                        resultado+=" 6A\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (6A"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_EORA:
-                        resultado+=" A8\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A8"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_EORB:
-                        resultado+=" E8\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E8"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_INC:
-                        resultado+=" 6C\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (6C"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_JMP:
-                        resultado+=" 6E\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (6E"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_JSR:
-                        resultado+=" AD\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AD"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDAA:
-                        resultado+=" A6\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A6"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDAB:
-                        resultado+=" E6\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E6"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDD:
-                        resultado+=" EC\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (EC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDS:
-                        resultado+=" AE\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDX:
-                        resultado+=" EE\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (EE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LDY:
-                        resultado+=" 1AEE\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1AEE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_LSL:
-                        resultado+=" 68\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (68"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_LSR:
-                        resultado+=" 64\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (64"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_NEG:
-                        resultado+=" 60\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (60"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_ORAA:
-                        resultado+=" AA\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AA"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_ORAB:
-                        resultado+=" EA\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (EA"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_ROL:
-                        resultado+=" 69\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (69"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_ROR:
-                        resultado+=" 66\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (66"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_SBCA:
-                        resultado+=" A2\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A2"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_SBCB:
-                        resultado+=" E2\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E2"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STAA:
-                        resultado+=" A7\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A7"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STAB:
-                        resultado+=" E7\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E7"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STD:
-                        resultado+=" ED\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (ED"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STS:
-                        resultado+=" AF\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (AF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STX:
-                        resultado+=" EF\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (EF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_STY:
-                        resultado+=" 1AEF\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1AEF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDX_SUBA:
-                        resultado+=" A0\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A0"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_SUBB:
-                        resultado+=" E0\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (E0"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_SUBD:
-                        resultado+=" A3\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDX_TST:
-                        resultado+=" 6D\t"+lexer.lexeme+"\n";
+                        operando=operandoH2(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (6D"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,2);
                         break;
                 case INDY_CPD:
-                        resultado+=" CDA3\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (CDA3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_CPX:
-                        resultado+=" CDAC\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (CDAC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_CPY:
-                        resultado+=" 18AC\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_DEC:
-                        resultado+=" 186A\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (186A"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_EORA:
-                        resultado+=" 18A8\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A8"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_EORB:
-                        resultado+=" 18E8\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E8"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_INC:
-                        resultado+=" 186C\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (186C"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_JMP:
-                        resultado+=" 186E\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (186E"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_JSR:
-                        resultado+=" 18AD\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AD"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDAA:
-                        resultado+=" 18A6\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A6"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDAB:
-                        resultado+=" 18E6\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E6"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDD:
-                        resultado+=" 18EC\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18EC"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDS:
-                        resultado+=" 18AE\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDX:
-                        resultado+=" CDEE\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (CDEE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LDY:
-                        resultado+=" 18EE\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18EE"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LSL:
-                        resultado+=" 1868\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1868"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_LSR:
-                        resultado+=" 1864\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1864"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_NEG:
-                        resultado+=" 1860\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1860"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_ORAA:
-                        resultado+=" 18AA\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AA"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_ORAB:
-                        resultado+=" 18EA\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18EA"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_ROL:
-                        resultado+=" 1869\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1869"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_ROR:
-                        resultado+=" 1866\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (1866"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_SBCA:
-                        resultado+=" 18A2\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A2"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_SBCB:
-                        resultado+=" 18E2\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E2"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STAA:
-                        resultado+=" 18A7\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A7"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STAB:
-                        resultado+=" 18E7\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E7"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STD:
-                        resultado+=" 18ED\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18ED"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STS:
-                        resultado+=" 18AF\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18AF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STX:
-                        resultado+=" CDEF\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (CDEF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_STY:
-                        resultado+=" 18EF\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18EF"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_SUBA:
-                        resultado+=" 18A0\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A0"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_SUBB:
-                        resultado+=" 18E0\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18E0"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_SUBD:
-                        resultado+=" 18A3\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (18A3"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case INDY_TST:
-                        resultado+=" 186D\t"+lexer.lexeme+"\n";
+                        operando=operandoH4(lexer.lexeme);
+                        opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (186D"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
+                        loc=localidad(loc,4);
                         break;
                 case NUMERO:
                     resultado += " " + lexer.lexeme + "\n";
@@ -1008,19 +1335,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // SOLO PARA OPERANDOS HEXADECIMALES Y DE LONGITUD 2
-     public String operandoH2(String lexer){
+    public String operandoH2(String lexer){
+//        System.out.println(lexer);
         int i=lexer.indexOf("$");
-        String operando=lexer.substring(i+1,i+2);
+        String operando=lexer.substring(i+1,i+3);
         return operando;
     }
     
-    // SEPARA EL OPCODE
+    // SOLO ARA OPERANDOS HEXA Y DE LONGITUD 4
+    public String operandoH4(String lexer){
+        int i=lexer.indexOf("$");
+        String operando=lexer.substring(i+1,i+5);
+        
+        return operando;
+    }
+    
+    // DA EL MNEMONICO
     public String opcode(String lexer,String operando){
         String opCode=lexer.stripLeading();
         int i=opCode.indexOf(operando.charAt((0)));
         opCode=opCode.substring(0,i);
         opCode=opCode.stripTrailing();
         return opCode;
+    }
+    
+    // AUMENTA LA LOCALIDAD
+    public String localidad(String loc,int a){
+        int i=Integer.parseInt(loc,16);
+        i=i+a;
+        loc=Integer.toHexString(i);
+        return loc;
     }
     
     private void btnArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArchivoActionPerformed
