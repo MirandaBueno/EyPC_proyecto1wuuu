@@ -287,10 +287,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case INH_XGDY:
                     resultado += "  18 8F\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ADCA:
+                case IMM_ADCA_HEXA:
                     resultado += "  89\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ADCB:
+                case IMM_ADCA_DEC:
+                    resultado += "  89\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCA_CHAR:
+                    resultado += "  89\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCB_HEXA:
+                    resultado += "  C9\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCB_DEC:
+                    resultado += "  C9\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADCB_CHAR:
                     resultado += "  C9\t" + lexer.lexeme + "\n";
                     break;
                 case IMM_ADDA:
@@ -374,10 +386,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case IMM_SUBD:
                     resultado += "  83\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ADCA:
+                case DIR_ADCA_HEXA:
                     resultado += "  99\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ADCB:
+                case DIR_ADCA_DEC:
+                    resultado += "  99\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADCB_HEXA:
+                    resultado += "  D9\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADCB_DEC:
                     resultado += "  D9\t" + lexer.lexeme + "\n";
                     break;
                 case DIR_ADDA:
