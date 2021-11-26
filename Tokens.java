@@ -268,7 +268,6 @@ public enum Tokens {
     INDY_SUBD,
     INDX_TST,
     INDY_TST,
-    NUMERO,
     Etiq_Var_Instrucc,
     Org_Equ,
     NumeroHexaIMM,
