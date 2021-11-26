@@ -223,6 +223,7 @@ END {lexeme=yytext(); return END;}
 ( "subb #" | "SUBB #") {lexeme = yytext(); return IMM_SUBB;}
 /*IMM SUBD */ 
 ( "subd #"| "SUBD #" {lexeme = yytext(); return IMM_SUBD;}
+
 /*DIR ADCA */
 ("adca"{espacio}+"$"{H}{2}) {lexeme = yytext(); return DIR_ADCA_HEXA;}
 ("adca"{espacio}+{D}{2}) {lexeme = yytext(); return DIR_ADCA_DEC;}
@@ -434,3 +435,4 @@ END {lexeme=yytext(); return END;}
 "$"(([0-9]|[A-F]){2})",Y" {lexeme=yytext(); return NumeroHexaINDY;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
  . {return ERROR;}
+
