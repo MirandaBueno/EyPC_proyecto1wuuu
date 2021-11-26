@@ -11,7 +11,7 @@ import java_cup.runtime.Symbol;
 %caseless
 L=[a-zA-Z_]
 D =[0-9]
-H =[0-9][A-F]
+H =[0-9][A-F_]
 espacio=[ ,\t,\r,\n]+
 %{
     private Symbol symbol(int type, Object value){
@@ -173,6 +173,7 @@ END {return new Symbol(sym.END, yychar, yyline, yytext());}
 ( "xgdx" | "XGDX" ) {return new Symbol(sym.INH_XGDX, yychar, yyline, yytext());}
 /*INH XGDY */
 ( "xgdy" | "XGDY" ) {return new Symbol(sym.INH_XGDY, yychar, yyline, yytext());}
+
 /*IMM ADCA */
 ( "adca"{espacio}+"#$"{H}{2})|("adca"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADCA_HEXA, yychar, yyline, yytext());}
 ( "adca"{espacio}+"#$"{D}{2,4}) {return new Symbol(sym.IMM_ADCA_DEC, yychar, yyline, yytext());}
@@ -317,6 +318,16 @@ END {return new Symbol(sym.END, yychar, yyline, yytext());}
 ( "subb" | "SUBB") {return new Symbol(sym.DIR_SUBB, yychar, yyline, yytext());}
 /*DIR SUBD */ 
 ( "subd" | "SUBD") {return new Symbol(sym.DIR_SUBD, yychar, yyline, yytext());}
+
+//ASÍ LO PUSE
+/*INDX ADCA */
+("adca"{espacio}+"$"{H}{2}",X") {return new Symbol(sym.INDX_ADCA, yychar, yyline, yytext());}
+/*INDX ADCB */
+"adcb"{espacio}+"$"{H}{2}",X" {return new Symbol(sym.INDX_ADCB, yychar, yyline, yytext());}
+/*INDY ADCA */
+"adca"{espacio}+"$"{H}{2}",Y" {return new Symbol(sym.INDY_ADCA, yychar, yyline, yytext());}
+/*INDY ADCB */
+"adcb"{espacio}+"$"{H}{2}",Y" {return new Symbol(sym.INDY_ADCB, yychar, yyline, yytext());}
 
 /*INDX ADCA */
 "adca"{espacio}+"$"{H}{2}",X" {return new Symbol(sym.INDX_ADCA, yychar, yyline, yytext());}
