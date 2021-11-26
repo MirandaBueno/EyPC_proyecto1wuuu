@@ -6,14 +6,14 @@ import static codigo.Tokens.*;
 %caseless
 L=[a-zA-Z_]
 D=[0-9]
-H =[0-9][A-F_]
-espacio=[ ,\t,\r]+
+H =[0-9]|[A-F_]
+espacio=[ ,\t,\r]
 %{
     public String lexeme;
 %}
 %%
-ORG {lexeme=yytext(); return ORG;}
-EQU {lexeme=yytext(); return EQU;}
+{espacio}+"ORG"{espacio}+"$"{H}{4} {lexeme=yytext(); return ORG;}
+({L}({L}|{D})*){espacio}+"EQU"{espacio}+"$"{H}{4} {lexeme=yytext(); return EQU;}
 FCB {lexeme=yytext(); return FCB;}
 END {lexeme=yytext(); return END;}
 /*INH ABA */
