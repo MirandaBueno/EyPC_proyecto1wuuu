@@ -8,6 +8,7 @@ public enum Tokens {
     Linea,
     ORG,
     EQU,
+    Comentario,
     FCB,
     END,
     Gato,
