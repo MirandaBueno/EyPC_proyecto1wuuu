@@ -316,85 +316,247 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case IMM_ADCB_CHAR:
                     resultado += "  C9\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ADDA:
+                case IMM_ADDA_HEXA:
                     resultado += "  8B\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ADDB:
+                case IMM_ADDA_DEC:
+                    resultado += "  8B\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDA_CHAR:
+                    resultado += "  8B\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDB_HEXA:
                     resultado += "  CB\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ADDD:
+                case IMM_ADDB_DEC:
+                    resultado += "  CB\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDB_CHAR:
+                    resultado += "  CB\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDD_HEXA:
                     resultado += "  C3\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ANDA:
+                case IMM_ADDD_DEC:
+                    resultado += "  C3\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ADDD_CHAR:
+                    resultado += "  C3\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ANDA_HEXA:
                     resultado += "  84\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ANDB:
+                case IMM_ANDA_DEC:
+                    resultado += "  84\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ANDA_CHAR:
+                    resultado += "  84\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ANDB_HEXA:
                     resultado += "  C4\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_BITA:
+                 case IMM_ANDB_DEC:
+                    resultado += "  C4\t" + lexer.lexeme + "\n";
+                    break;
+                 case IMM_ANDB_CHAR:
+                    resultado += "  C4\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITA_HEXA:
                     resultado += "  85\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_BITB:
+                case IMM_BITA_DEC:
+                    resultado += "  85\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITA_CHAR:
+                    resultado += "  85\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITB_HEXA:
                     resultado += "  C5\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_CMPA:
+                case IMM_BITB_DEC:
+                    resultado += "  C5\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_BITB_CHAR:
+                    resultado += "  C5\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPA_HEXA:
                     resultado += "  81\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_CMPB:
+                case IMM_CMPA_DEC:
+                    resultado += "  81\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPA_CHAR:
+                    resultado += "  81\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPB_HEXA:
                     resultado += "  C1\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_CPD:
+                case IMM_CMPB_DEC:
+                    resultado += "  C1\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CMPB_CHAR:
+                    resultado += "  C1\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPD_HEXA:
                     resultado += "  1A 83\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_CPX:
+                case IMM_CPD_DEC:
+                    resultado += "  1A 83\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPD_CHAR:
+                    resultado += "  1A 83\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPX_HEXA:
                     resultado += "  8C\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_CPY:
+                case IMM_CPX_DEC:
+                    resultado += "  8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPX_CHAR:
+                    resultado += "  8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPY_HEXA:
                     resultado += "  18 8C\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_EORA:
+                case IMM_CPY_DEC:
+                    resultado += "  18 8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_CPY_CHAR:
+                    resultado += "  18 8C\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORA_HEXA:
                     resultado += "  88\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_EORB:
+                case IMM_EORA_DEC:
+                    resultado += "  88\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORA_CHAR:
+                    resultado += "  88\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORB_HEXA:
                     resultado += "  C8\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_LDAA:
+                case IMM_EORB_DEC:
+                    resultado += "  C8\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_EORB_CHAR:
+                    resultado += "  C8\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDAA_HEXA:
                     resultado += "  86\t" + lexer.lexeme;// + "\n";
                     break;
-                case IMM_LDAB:
+                case IMM_LDAA_CHAR:
+                    resultado += "  86\t" + lexer.lexeme;// + "\n";
+                    break;
+                case IMM_LDAA_DEC:
+                    resultado += "  86\t" + lexer.lexeme;// + "\n";
+                    break;
+                case IMM_LDAB_HEXA:
                     resultado += "  C6\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_LDD:
+                case IMM_LDAB_DEC:
+                    resultado += "  C6\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDAB_CHAR:
+                    resultado += "  C6\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDD_HEXA:
                     resultado += "  CC\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_LDS:
+                case IMM_LDD_DEC:
+                    resultado += "  CC\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDD_CHAR:
+                    resultado += "  CC\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDS_HEXA:
                     resultado += "  8E\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_LDX:
+                case IMM_LDS_DEC:
+                    resultado += "  8E\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDS_CHAR:
+                    resultado += "  8E\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDX_HEXA:
                     resultado += "  CE\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_LDY:
+                case IMM_LDX_DEC:
+                    resultado += "  CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDX_CHAR:
+                    resultado += "  CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDY_HEXA:
                     resultado += "  18 CE\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ORAA:
+                case IMM_LDY_DEC:
+                    resultado += "  18 CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_LDY_CHAR:
+                    resultado += "  18 CE\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAA_HEXA:
                     resultado += "  8A\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_ORAB:
+                case IMM_ORAA_CHAR:
+                    resultado += "  8A\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAA_DEC:
+                    resultado += "  8A\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAB_HEXA:
                     resultado += "  CA\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_SBCA:
+                case IMM_ORAB_DEC:
+                    resultado += "  CA\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_ORAB_CHAR:
+                    resultado += "  CA\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCA_HEXA:
                     resultado += "  82\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_SBCB:
+                case IMM_SBCA_DEC:
+                    resultado += "  82\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCA_CHAR:
+                    resultado += "  82\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCB_HEXA:
                     resultado += "  C2\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_SUBA:
+                case IMM_SBCB_DEC:
+                    resultado += "  C2\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SBCB_CHAR:
+                    resultado += "  C2\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBA_HEXA:
                     resultado += "  80\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_SUBB:
+                case IMM_SUBA_DEC:
+                    resultado += "  80\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBA_CHAR:
+                    resultado += "  80\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBB_HEXA:
                     resultado += "  C0\t" + lexer.lexeme + "\n";
                     break;
-                case IMM_SUBD:
+                case IMM_SUBB_DEC:
+                    resultado += "  C0\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBB_CHAR:
+                    resultado += "  C0\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBD_HEXA:
+                    resultado += "  83\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBD_DEC:
+                    resultado += "  83\t" + lexer.lexeme + "\n";
+                    break;
+                case IMM_SUBD_CHAR:
                     resultado += "  83\t" + lexer.lexeme + "\n";
                     break;
                 case DIR_ADCA_HEXA:
@@ -409,118 +571,232 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case DIR_ADCB_DEC:
                     resultado += "  D9\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ADDA:
+                case DIR_ADDA_HEXA:
                     resultado += "  9B\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ADDB:
+                case DIR_ADDA_DEC:
+                    resultado += "  9B\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADDB_HEXA:
                     resultado += "  DB\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ADDD:
+                case DIR_ADDB_DEC:
+                    resultado += "  DB\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ADDD_HEXA:
                     resultado += "  D3\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ANDA:
+                case DIR_ADDD_DEC:
+                    resultado += "  D3\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ANDA_HEXA:
                     resultado += "  94\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ANDB:
+                case DIR_ANDA_DEC:
+                    resultado += "  94\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ANDB_HEXA:
                     resultado += "  D4\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BCLR:
+                case DIR_ANDB_DEC:
+                    resultado += "  D4\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BCLR_HEXA:
                     resultado += "  15\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BITA:
+                case DIR_BCLR_DEC:
+                    resultado += "  15\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BITA_HEXA:
                     resultado += "  95\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BITB:
+                case DIR_BITA_DEC:
+                    resultado += "  95\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BITB_HEXA:
                     resultado += "  D5\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BRCLR:
+                case DIR_BITB_DEC:
+                    resultado += "  D5\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BRCLR_HEXA:
                     resultado += "  13\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BRSET:
+                case DIR_BRCLR_DEC:
+                    resultado += "  13\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BRSET_HEXA:
                     resultado += "  12\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_BSET:
+                case DIR_BRSET_DEC:
+                    resultado += "  12\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_BSET_HEXA:
                     resultado += "  14\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_CMPA:
+                case DIR_BSET_DEC:
+                    resultado += "  14\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CMPA_HEXA:
                     resultado += "  91\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_CMPB:
+                case DIR_CMPA_DEC:
+                    resultado += "  91\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CMPB_HEXA:
                     resultado += "  D1\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_CPD:
+                case DIR_CMPB_DEC:
+                    resultado += "  D1\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPD_HEXA:
                     resultado += "  1A 93\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_CPX:
+                case DIR_CPD_DEC:
+                    resultado += "  1A 93\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPX_HEXA:
                     resultado += "  8C\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_CPY:
+                case DIR_CPX_DEC:
+                    resultado += "  8C\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_CPY_HEXA:
                     resultado += "  18 9C\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_EORA:
+                case DIR_CPY_DEC:
+                    resultado += "  18 9C\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_EORA_HEXA:
                     resultado += "  98\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_EORB:
+                case DIR_EORA_DEC:
+                    resultado += "  98\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_EORB_HEXA:
                     resultado += "  D8\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_JSR:
+                case DIR_EORB_DEC:
+                    resultado += "  D8\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_JSR_HEXA:
                     resultado += "  9D\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDAA:
+                case DIR_JSR_DEC:
+                    resultado += "  9D\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDAA_HEXA:
                     resultado += "  96\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDAB:
+                case DIR_LDAA_DEC:
+                    resultado += "  96\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDAB_HEXA:
                     resultado += "  D6\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDD:
+                case DIR_LDAB_DEC:
+                    resultado += "  D6\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDD_HEXA:
                     resultado += "  DC\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDS:
+                case DIR_LDD_DEC:
+                    resultado += "  DC\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDS_HEXA:
                     resultado += "  9E\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDX:
+                case DIR_LDS_DEC:
+                    resultado += "  9E\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDX_DEC:
                     resultado += "  DE\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_LDY:
+                case DIR_LDX_HEXA:
+                    resultado += "  DE\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_LDY_HEXA:
                     resultado += "  18 DE\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ORAA:
+                case DIR_LDY_DEC:
+                    resultado += "  18 DE\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ORAA_HEXA:
                     resultado += "  9A\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_ORAB:
+                case DIR_ORAA_DEC:
+                    resultado += "  9A\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_ORAB_HEXA:
                     resultado += "  DA\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_SBCA:
+                case DIR_ORAB_DEC:
+                    resultado += "  DA\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SBCA_HEXA:
                     resultado += "  92\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_SBCB:
+                case DIR_SBCA_DEC:
+                    resultado += "  92\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SBCB_HEXA:
                     resultado += "  D2\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STAA:
+                case DIR_SBCB_DEC:
+                    resultado += "  D2\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STAA_HEXA:
                     resultado += "  97\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STAB:
+                case DIR_STAA_DEC:
+                    resultado += "  97\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STAB_HEXA:
                     resultado += "  D7\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STD:
+                case DIR_STAB_DEC:
+                    resultado += "  D7\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STD_HEXA:
                     resultado += "  DD\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STS:
+                case DIR_STD_DEC:
+                    resultado += "  DD\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STS_HEXA:
                     resultado += "  9F\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STX:
+                case DIR_STS_DEC:
+                    resultado += "  9F\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STX_HEXA:
                     resultado += "  DF\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_STY:
+                case DIR_STX_DEC:
+                    resultado += "  DF\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_STY_HEXA:
                     resultado += "  18 DF\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_SUBA:
+                case DIR_STY_DEC:
+                    resultado += "  18 DF\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBA_HEXA:
                     resultado += "  90\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_SUBB:
+                case DIR_SUBA_DEC:
+                    resultado += "  90\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBB_HEXA:
                     resultado += "  D0\t" + lexer.lexeme + "\n";
                     break;
-                case DIR_SUBD:
+                case DIR_SUBB_DEC:
+                    resultado += "  D0\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBD_HEXA:
+                    resultado += "  93\t" + lexer.lexeme + "\n";
+                    break;
+                case DIR_SUBD_DEC:
                     resultado += "  93\t" + lexer.lexeme + "\n";
                     break;
              
