@@ -514,7 +514,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     break;
              
                 case INDX_ADCA:
-                        resultado+=" A9\t"+lexer.lexeme+"\n";
+                        String operando=operandoH2(lexer.lexeme);
+                        String opCode=opcode(lexer.lexeme,operando);
+                        resultado+=loc+" (A9"+operando+")\t : \t"+lexer.lexeme.stripLeading().toUpperCase();
                         break;
                 case INDY_ADCA:
                         resultado+=" 18A9\t"+lexer.lexeme+"\n";
@@ -1005,6 +1007,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // SOLO PARA OPERANDOS HEXADECIMALES Y DE LONGITUD 2
+     public String operandoH2(String lexer){
+        int i=lexer.indexOf("$");
+        String operando=lexer.substring(i+1,i+2);
+        return operando;
+    }
+    
+    // SEPARA EL OPCODE
+    public String opcode(String lexer,String operando){
+        String opCode=lexer.stripLeading();
+        int i=opCode.indexOf(operando.charAt((0)));
+        opCode=opCode.substring(0,i);
+        opCode=opCode.stripTrailing();
+        return opCode;
+    }
+    
     private void btnArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArchivoActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
