@@ -17,151 +17,151 @@ espacio=[ ,\t,\r]
 FCB {lexeme=yytext(); return FCB;}
 END {lexeme=yytext(); return END;}
 /*INH ABA */
-( "aba" | "ABA" ) {lexeme = yytext(); return INH_ABA;}
+{espacio}+( "aba" | "ABA" ) {lexeme = yytext(); return INH_ABA;}
 /*INH ABX */
-( "abx" | "ABX" ) {lexeme = yytext(); return INH_ABX;}
+{espacio}+( "abx" | "ABX" ) {lexeme = yytext(); return INH_ABX;}
 /*INH ABY */
-( "aby" | "ABY" ) {lexeme = yytext(); return INH_ABY;}
+{espacio}+( "aby" | "ABY" ) {lexeme = yytext(); return INH_ABY;}
 /*INH ASLA */
-( "asla" | "ASLA" ) {lexeme = yytext(); return INH_ASLA;}
+{espacio}+( "asla" | "ASLA" ) {lexeme = yytext(); return INH_ASLA;}
 /*INH ASLB */
-( "aslb" | "ASLB" ) {lexeme = yytext(); return INH_ASLB;}
+{espacio}+( "aslb" | "ASLB" ) {lexeme = yytext(); return INH_ASLB;}
 /*INH ASLD */
-( "asld" | "ASLD" ) {lexeme = yytext(); return INH_ASLD;}
+{espacio}+( "asld" | "ASLD" ) {lexeme = yytext(); return INH_ASLD;}
 /*INH ASRA */
-( "asra" | "ASRA" ) {lexeme = yytext(); return INH_ASRA;}
+{espacio}+( "asra" | "ASRA" ) {lexeme = yytext(); return INH_ASRA;}
 /*INH ASRB */
-( "asrb" | "ASRB" ) {lexeme = yytext(); return INH_ASRB;}
+{espacio}+( "asrb" | "ASRB" ) {lexeme = yytext(); return INH_ASRB;}
 /*INH CBA */
-( "cba" | "CBA" ) {lexeme = yytext(); return INH_CBA;}
+{espacio}+( "cba" | "CBA" ) {lexeme = yytext(); return INH_CBA;}
 /*INH CLC */
-( "clc" | "CLC" ) {lexeme = yytext(); return INH_CLC;}
+{espacio}+( "clc" | "CLC" ) {lexeme = yytext(); return INH_CLC;}
 /*INH CLI */
-( "cli" | "CLI" ) {lexeme = yytext(); return INH_CLI;}
+{espacio}+( "cli" | "CLI" ) {lexeme = yytext(); return INH_CLI;}
 /*INH CLRA */
-( "clra" | "CLRA" ) {lexeme = yytext(); return INH_CLRA;}
+{espacio}+( "clra" | "CLRA" ) {lexeme = yytext(); return INH_CLRA;}
 /*INH CLRB */
-( "clrb" | "CLRB" ) {lexeme = yytext(); return INH_CLRB;}
+{espacio}+( "clrb" | "CLRB" ) {lexeme = yytext(); return INH_CLRB;}
 /*INH CLV */
-( "clv" | "CLV" ) {lexeme = yytext(); return INH_CLV;}
+{espacio}+( "clv" | "CLV" ) {lexeme = yytext(); return INH_CLV;}
 /*INH COMA */
-( "coma" | "COMA" ) {lexeme = yytext(); return INH_COMA;}
+{espacio}+( "coma" | "COMA" ) {lexeme = yytext(); return INH_COMA;}
 /*INH COMB */
-( "comb" | "COMB" ) {lexeme = yytext(); return INH_COMB;}
+{espacio}+( "comb" | "COMB" ) {lexeme = yytext(); return INH_COMB;}
 /*INH DAA */
-( "daa" | "DAA" ) {lexeme = yytext(); return INH_DAA;}
+{espacio}+( "daa" | "DAA" ) {lexeme = yytext(); return INH_DAA;}
 /*INH DECA */
-( "deca" | "DECA" ) {lexeme = yytext(); return INH_DECA;}
+{espacio}+( "deca" | "DECA" ) {lexeme = yytext(); return INH_DECA;}
 /*INH DECB */
-( "decb" | "DECB" ) {lexeme = yytext(); return INH_DECB;}
+{espacio}+( "decb" | "DECB" ) {lexeme = yytext(); return INH_DECB;}
 /*INH DES */
-( "des" | "DES" ) {lexeme = yytext(); return INH_DES;}
+{espacio}+( "des" | "DES" ) {lexeme = yytext(); return INH_DES;}
 /*INH DEX */
-( "dex" | "DEX" ) {lexeme = yytext(); return INH_DEX;}
+{espacio}+( "dex" | "DEX" ) {lexeme = yytext(); return INH_DEX;}
 /*INH DEY */
-( "dey" | "DEY" ) {lexeme = yytext(); return INH_DEY;}
+{espacio}+( "dey" | "DEY" ) {lexeme = yytext(); return INH_DEY;}
 /*INH FDIV */
-( "fdiv" | "FDIV" ) {lexeme = yytext(); return INH_FDIV;}
+{espacio}+( "fdiv" | "FDIV" ) {lexeme = yytext(); return INH_FDIV;}
 /*INH IDIV */
-( "idiv" | "IDIV" ) {lexeme = yytext(); return INH_IDIV;}
+{espacio}+( "idiv" | "IDIV" ) {lexeme = yytext(); return INH_IDIV;}
 /*INH INCA */
-( "inca" | "INCA" ) {lexeme = yytext(); return INH_INCA;}
+{espacio}+( "inca" | "INCA" ) {lexeme = yytext(); return INH_INCA;}
 /*INH INCB */
-( "incb" | "INCB" ) {lexeme = yytext(); return INH_INCB;}
+{espacio}+( "incb" | "INCB" ) {lexeme = yytext(); return INH_INCB;}
 /*INH INS */
-( "ins" | "INS" ) {lexeme = yytext(); return INH_INS;}
+{espacio}+( "ins" | "INS" ) {lexeme = yytext(); return INH_INS;}
 /*INH INX */
-( "inx" | "INX" ) {lexeme = yytext(); return INH_INX;}
+{espacio}+( "inx" | "INX" ) {lexeme = yytext(); return INH_INX;}
 /*INH INY */
-( "iny" | "INY" ) {lexeme = yytext(); return INH_INY;}
+{espacio}+( "iny" | "INY" ) {lexeme = yytext(); return INH_INY;}
 /*INH LSLA */
-( "lsla" | "LSLA" ) {lexeme = yytext(); return INH_LSLA;}
+{espacio}+( "lsla" | "LSLA" ) {lexeme = yytext(); return INH_LSLA;}
 /*INH LSLB */
-( "lslb" | "LSLB" ) {lexeme = yytext(); return INH_LSLB;}
+{espacio}+( "lslb" | "LSLB" ) {lexeme = yytext(); return INH_LSLB;}
 /*INH LSLD */
-( "lsld" | "LSLD" ) {lexeme = yytext(); return INH_LSLD;}
+{espacio}+( "lsld" | "LSLD" ) {lexeme = yytext(); return INH_LSLD;}
 /*INH LSRA */
-( "lsra" | "LSRA" ) {lexeme = yytext(); return INH_LSRA;}
+{espacio}+( "lsra" | "LSRA" ) {lexeme = yytext(); return INH_LSRA;}
 /*INH LSRB */
-( "lsrb" | "LSRB" ) {lexeme = yytext(); return INH_LSRB;}
+{espacio}+( "lsrb" | "LSRB" ) {lexeme = yytext(); return INH_LSRB;}
 /*INH LSRD */
-( "lsrd" | "LSRD" ) {lexeme = yytext(); return INH_LSRD;}
+{espacio}+( "lsrd" | "LSRD" ) {lexeme = yytext(); return INH_LSRD;}
 /*INH MUL */
-( "mul" | "MUL" ) {lexeme = yytext(); return INH_MUL;}
+{espacio}+( "mul" | "MUL" ) {lexeme = yytext(); return INH_MUL;}
 /*INH NEGA */
-( "nega" | "NEGA" ) {lexeme = yytext(); return INH_NEGA;}
+{espacio}+( "nega" | "NEGA" ) {lexeme = yytext(); return INH_NEGA;}
 /*INH NEGB */
-( "negb" | "NEGB" ) {lexeme = yytext(); return INH_NEGB;}
+{espacio}+( "negb" | "NEGB" ) {lexeme = yytext(); return INH_NEGB;}
 /*INH NOP */
-( "nop" | "NOP" ) {lexeme = yytext(); return INH_NOP;}
+{espacio}+( "nop" | "NOP" ) {lexeme = yytext(); return INH_NOP;}
 /*INH PSHA */
-( "psha" | "PSHA" ) {lexeme = yytext(); return INH_PSHA;}
+{espacio}+( "psha" | "PSHA" ) {lexeme = yytext(); return INH_PSHA;}
 /*INH PSHB */
-( "pshb" | "PSHB" ) {lexeme = yytext(); return INH_PSHB;}
+{espacio}+( "pshb" | "PSHB" ) {lexeme = yytext(); return INH_PSHB;}
 /*INH PSHX */
-( "pshx" | "PSHX" ) {lexeme = yytext(); return INH_PSHX;}
+{espacio}+( "pshx" | "PSHX" ) {lexeme = yytext(); return INH_PSHX;}
 /*INH PSHY */
-( "pshy" | "PSHY" ) {lexeme = yytext(); return INH_PSHY;}
+{espacio}+( "pshy" | "PSHY" ) {lexeme = yytext(); return INH_PSHY;}
 /*INH PULA */
-( "pula" | "PULA" ) {lexeme = yytext(); return INH_PULA;}
+{espacio}+( "pula" | "PULA" ) {lexeme = yytext(); return INH_PULA;}
 /*INH PULB */
-( "pulb" | "PULB" ) {lexeme = yytext(); return INH_PULB;}
+{espacio}+( "pulb" | "PULB" ) {lexeme = yytext(); return INH_PULB;}
 /*INH PULX */
-( "pulx" | "PULX" ) {lexeme = yytext(); return INH_PULX;}
+{espacio}+( "pulx" | "PULX" ) {lexeme = yytext(); return INH_PULX;}
 /*INH PULY */
-( "puly" | "PULY" ) {lexeme = yytext(); return INH_PULY;}
+{espacio}+( "puly" | "PULY" ) {lexeme = yytext(); return INH_PULY;}
 /*INH ROLA */
-( "rola" | "ROLA" ) {lexeme = yytext(); return INH_ROLA;}
+{espacio}+( "rola" | "ROLA" ) {lexeme = yytext(); return INH_ROLA;}
 /*INH ROLB */
-( "rolb" | "ROLB" ) {lexeme = yytext(); return INH_ROLB;}
+{espacio}+( "rolb" | "ROLB" ) {lexeme = yytext(); return INH_ROLB;}
 /*INH RORA */
-( "rora" | "RORA" ) {lexeme = yytext(); return INH_RORA;}
+{espacio}+( "rora" | "RORA" ) {lexeme = yytext(); return INH_RORA;}
 /*INH RORB */
-( "rorb" | "RORB" ) {lexeme = yytext(); return INH_RORB;}
+{espacio}+( "rorb" | "RORB" ) {lexeme = yytext(); return INH_RORB;}
 /*INH RTI */
-( "rti" | "RTI" ) {lexeme = yytext(); return INH_RTI;}
+{espacio}+( "rti" | "RTI" ) {lexeme = yytext(); return INH_RTI;}
 /*INH RTS */
-( "rts" | "RTS" ) {lexeme = yytext(); return INH_RTS;}
+{espacio}+( "rts" | "RTS" ) {lexeme = yytext(); return INH_RTS;}
 /*INH SBA */
-( "sba" | "SBA" ) {lexeme = yytext(); return INH_SBA;}
+{espacio}+( "sba" | "SBA" ) {lexeme = yytext(); return INH_SBA;}
 /*INH SEC */
-( "sec" | "SEC" ) {lexeme = yytext(); return INH_SEC;}
+{espacio}+( "sec" | "SEC" ) {lexeme = yytext(); return INH_SEC;}
 /*INH SEI */
-( "sei" | "SEI" ) {lexeme = yytext(); return INH_SEI;}
+{espacio}+( "sei" | "SEI" ) {lexeme = yytext(); return INH_SEI;}
 /*INH SEV */
-( "sev" | "SEV" ) {lexeme = yytext(); return INH_SEV;}
+{espacio}+( "sev" | "SEV" ) {lexeme = yytext(); return INH_SEV;}
 /*INH STOP */
-( "stop" | "STOP" ) {lexeme = yytext(); return INH_STOP;}
+{espacio}+( "stop" | "STOP" ) {lexeme = yytext(); return INH_STOP;}
 /*INH SWI */
-( "swi" | "SWI" ) {lexeme = yytext(); return INH_SWI;}
+{espacio}+( "swi" | "SWI" ) {lexeme = yytext(); return INH_SWI;}
 /*INH TAB */
-( "tab" | "TAB" ) {lexeme = yytext(); return INH_TAB;}
+{espacio}+( "tab" | "TAB" ) {lexeme = yytext(); return INH_TAB;}
 /*INH TAP */
-( "tap" | "TAP" ) {lexeme = yytext(); return INH_TAP;}
+{espacio}+( "tap" | "TAP" ) {lexeme = yytext(); return INH_TAP;}
 /*INH TBA */
-( "tba" | "TBA" ) {lexeme = yytext(); return INH_TBA;}
+{espacio}+( "tba" | "TBA" ) {lexeme = yytext(); return INH_TBA;}
 /*INH TETS */
-( "tets" | "TETS" ) {lexeme = yytext(); return INH_TETS;}
+{espacio}+( "tets" | "TETS" ) {lexeme = yytext(); return INH_TETS;}
 /*INH TPA */
-( "tpa" | "TPA" ) {lexeme = yytext(); return INH_TPA;}
+{espacio}+( "tpa" | "TPA" ) {lexeme = yytext(); return INH_TPA;}
 /*INH TSTA */
-( "tsta" | "TSTA" ) {lexeme = yytext(); return INH_TSTA;}
+{espacio}+( "tsta" | "TSTA" ) {lexeme = yytext(); return INH_TSTA;}
 /*INH TSTB */
-( "tstb" | "TSTB" ) {lexeme = yytext(); return INH_TSTB;}
+{espacio}+( "tstb" | "TSTB" ) {lexeme = yytext(); return INH_TSTB;}
 /*INH TSX */
-( "tsx" | "TSX" ) {lexeme = yytext(); return INH_TSX;}
+{espacio}+( "tsx" | "TSX" ) {lexeme = yytext(); return INH_TSX;}
 /*INH TSY */
-( "tsy" | "TSY" ) {lexeme = yytext(); return INH_TSY;}
+{espacio}+( "tsy" | "TSY" ) {lexeme = yytext(); return INH_TSY;}
 /*INH TXS */
-( "txs" | "TXS" ) {lexeme = yytext(); return INH_TXS;}
+{espacio}+( "txs" | "TXS" ) {lexeme = yytext(); return INH_TXS;}
 /*INH TYS */
-( "tys" | "TYS" ) {lexeme = yytext(); return INH_TYS;}
+{espacio}+( "tys" | "TYS" ) {lexeme = yytext(); return INH_TYS;}
 /*INH WAI */
-( "wai" | "WAI" ) {lexeme = yytext(); return INH_WAI;}
+{espacio}+( "wai" | "WAI" ) {lexeme = yytext(); return INH_WAI;}
 /*INH XGDX */
-( "xgdx" | "XGDX" ) {lexeme = yytext(); return INH_XGDX;}
+{espacio}+( "xgdx" | "XGDX" ) {lexeme = yytext(); return INH_XGDX;}
 /*INH XGDY */
-( "xgdy" | "XGDY" ) {lexeme = yytext(); return INH_XGDY;}
+{espacio}+( "xgdy" | "XGDY" ) {lexeme = yytext(); return INH_XGDY;}
 
 /*IMM ADCA */
 ( "adca"{espacio}+"#$"{H}{2})|("adca"{espacio}+"#$"{H}{4}) {lexeme = yytext(); return IMM_ADCA_HEXA;}
