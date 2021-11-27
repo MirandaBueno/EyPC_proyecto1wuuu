@@ -11,7 +11,7 @@ import java_cup.runtime.Symbol;
 %caseless
 L=[a-zA-Z_]
 D =[0-9]
-H =[0-9]|[A-F_]
+H =[0-9A-F]
 espacio=[ ,\t,\r,\n]
 %{
     private Symbol symbol(int type, Object value){
@@ -176,158 +176,241 @@ END {return new Symbol(sym.END, yychar, yyline, yytext());}
 
 /*IMM ADCA */
 ( "adca"{espacio}+"#$"{H}{2})|("adca"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADCA_HEXA, yychar, yyline, yytext());}
-( "adca"{espacio}+"#$"{D}{2,4}) {return new Symbol(sym.IMM_ADCA_DEC, yychar, yyline, yytext());}
+( "adca"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ADCA_DEC, yychar, yyline, yytext());}
 ( "adca"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ADCA_CHAR, yychar, yyline, yytext());}
 /*IMM ADCB */
 ( "adcb"{espacio}+"#$"{H}{2}) | ("adcb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADCB_HEXA, yychar, yyline, yytext());}
-( "adcb"{espacio}+"#$"{D}{2,4}) {return new Symbol(sym.IMM_ADCB_DEC, yychar, yyline, yytext());}
+( "adcb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ADCB_DEC, yychar, yyline, yytext());}
 ( "adcb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ADCB_CHAR, yychar, yyline, yytext());}
 /*IMM ADDA */ 
-( "adda #" | "ADDA #" ) {return new Symbol(sym.IMM_ADDA, yychar, yyline, yytext());}
+( "adda"{espacio}+"#$"{H}{2}) | ("adda"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADDA_HEXA, yychar, yyline, yytext());}
+( "adda"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ADDA_DEC, yychar, yyline, yytext());}
+( "adda"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ADDA_CHAR, yychar, yyline, yytext());}
 /*IMM ADDB */
-( "addb #" | "ADDB #" ) {return new Symbol(sym.IMM_ADDB, yychar, yyline, yytext());}
+( "addb"{espacio}+"#$"{H}{2}) | ("addb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADDB_HEXA, yychar, yyline, yytext());}
+( "addb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ADDB_DEC, yychar, yyline, yytext());}
+( "addb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ADDB_CHAR, yychar, yyline, yytext());}
 /*IMM ADDD */
-( "addd #" | "ADDD #" ) {return new Symbol(sym.IMM_ADDD, yychar, yyline, yytext());}
+( "addd"{espacio}+"#$"{H}{2}) | ("addd"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ADDD_HEXA, yychar, yyline, yytext());}
+( "addd"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ADDD_DEC, yychar, yyline, yytext());}
+( "addd"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ADDD_CHAR, yychar, yyline, yytext());}
 /*IMM ANDA */
-( "anda #" | "ANDA #" ) {return new Symbol(sym.IMM_ANDA, yychar, yyline, yytext());}
+( "anda"{espacio}+"#$"{H}{2}) | ("anda"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ANDA_HEXA, yychar, yyline, yytext());}
+( "anda"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ANDA_DEC, yychar, yyline, yytext());}
+( "anda"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ANDA_CHAR, yychar, yyline, yytext());}
 /*IMM ANDB */ 
-( "andb #" | "ANDB #") {return new Symbol(sym.IMM_ANDB, yychar, yyline, yytext());}
+( "andb"{espacio}+"#$"{H}{2}) | ("andb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ANDB_HEXA, yychar, yyline, yytext());}
+( "andb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ANDB_DEC, yychar, yyline, yytext());}
+( "andb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ANDB_CHAR, yychar, yyline, yytext());}
 /*IMM BITA */ 
-( "bita #" | "BITA #") {return new Symbol(sym.IMM_BITA, yychar, yyline, yytext());}
+( "bita"{espacio}+"#$"{H}{2}) | ("bita"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_BITA_HEXA, yychar, yyline, yytext());}
+( "bita"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_BITA_DEC, yychar, yyline, yytext());}
+( "bita"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_BITA_CHAR, yychar, yyline, yytext());}
 /*IMM BITB */ 
-( "bitb #" | "BITB #") {return new Symbol(sym.IMM_BITB, yychar, yyline, yytext());}
+( "bitb"{espacio}+"#$"{H}{2}) | ("bitb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_BITB_HEXA, yychar, yyline, yytext());}
+( "bitb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_BITB_DEC, yychar, yyline, yytext());}
+( "bitb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_BITB_CHAR, yychar, yyline, yytext());}
 /*IMM CMPA */ 
-( "cmpa #" | "CMPA #") {return new Symbol(sym.IMM_CMPA, yychar, yyline, yytext());}
+( "cmpa"{espacio}+"#$"{H}{2}) | ("cmpa"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_CMPA_HEXA, yychar, yyline, yytext());}
+( "cmpa"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_CMPA_DEC, yychar, yyline, yytext());}
+( "cmpa"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_CMPA_CHAR, yychar, yyline, yytext());}
 /*IMM CMPB */ 
-( "cmpb #" | "CMPB #") {return new Symbol(sym.IMM_CMPB, yychar, yyline, yytext());}
+( "cmpb"{espacio}+"#$"{H}{2}) | ("cmpb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_CMPB_HEXA, yychar, yyline, yytext());}
+( "cmpb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_CMPB_DEC, yychar, yyline, yytext());}
+( "cmpb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_CMPB_CHAR, yychar, yyline, yytext());}
 /*IMM CPD */ 
-( "cpd #" | "CPD #") {return new Symbol(sym.IMM_CPD, yychar, yyline, yytext());}
+( "cpd"{espacio}+"#$"{H}{2}) | ("cpd"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_CPD_HEXA, yychar, yyline, yytext());}
+( "cpd"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_CPD_DEC, yychar, yyline, yytext());}
+( "cpd"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_CPD_CHAR, yychar, yyline, yytext());}
 /*IMM CPX */ 
-( "cpx #" | "CPX #") {return new Symbol(sym.IMM_CPX, yychar, yyline, yytext());}
+( "cpx"{espacio}+"#$"{H}{2}) | ("cpx"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_CPX_HEXA, yychar, yyline, yytext());}
+( "cpx"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_CPX_DEC, yychar, yyline, yytext());}
+( "cpx"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_CPX_CHAR, yychar, yyline, yytext());}
 /*IMM CPY */ 
-( "cpy #" | "CPY #") {return new Symbol(sym.IMM_CPY, yychar, yyline, yytext());}
+( "cpy"{espacio}+"#$"{H}{2}) | ("cpy"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_CPY_HEXA, yychar, yyline, yytext());}
+( "cpy"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_CPY_DEC, yychar, yyline, yytext());}
+( "cpy"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_CPY_CHAR, yychar, yyline, yytext());}
 /*IMM EORA */ 
-( "eora #" | "EORA #") {return new Symbol(sym.IMM_EORA, yychar, yyline, yytext());}
+( "eora"{espacio}+"#$"{H}{2}) | ("eora"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_EORA_HEXA, yychar, yyline, yytext());}
+( "eora"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_EORA_DEC, yychar, yyline, yytext());}
+( "eora"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_EORA_CHAR, yychar, yyline, yytext());}
 /*IMM EORB */ 
-( "eorb #" | "EORB #") {return new Symbol(sym.IMM_EORB, yychar, yyline, yytext());}
+( "eorb"{espacio}+"#$"{H}{2}) | ("eorb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_EORB_HEXA, yychar, yyline, yytext());}
+( "eorb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_EORB_DEC, yychar, yyline, yytext());}
+( "eorb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_EORB_CHAR, yychar, yyline, yytext());}
 /*IMM LDAA */ 
-( "ldaa #" | "LDAA #") {return new Symbol(sym.IMM_LDAA, yychar, yyline, yytext());}
+( "ldaa"{espacio}+"#$"{H}{2}) | ("ldaa"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDAA_HEXA, yychar, yyline, yytext());}
+( "ldaa"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDAA_DEC, yychar, yyline, yytext());}
+( "ldaa"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDAA_CHAR, yychar, yyline, yytext());}
 /*IMM LDAB */ 
-( "ldab #" | "LDAB #") {return new Symbol(sym.IMM_LDAB, yychar, yyline, yytext());}
+( "ldab"{espacio}+"#$"{H}{2}) | ("ldab"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDAB_HEXA, yychar, yyline, yytext());}
+( "ldab"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDAB_DEC, yychar, yyline, yytext());}
+( "ldab"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDAB_CHAR, yychar, yyline, yytext());}
 /*IMM LDD */ 
-( "ldd #" | "LDD #") {return new Symbol(sym.IMM_LDD, yychar, yyline, yytext());}
+( "ldd"{espacio}+"#$"{H}{2}) | ("ldd"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDD_HEXA, yychar, yyline, yytext());}
+( "ldd"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDD_DEC, yychar, yyline, yytext());}
+( "ldd"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDD_CHAR, yychar, yyline, yytext());}
 /*IMM LDS */ 
-( "lds #" | "LDS #") {return new Symbol(sym.IMM_LDS, yychar, yyline, yytext());}
+( "lds"{espacio}+"#$"{H}{2}) | ("lds"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDS_HEXA, yychar, yyline, yytext());}
+( "lds"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDS_DEC, yychar, yyline, yytext());}
+( "lds"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDS_CHAR, yychar, yyline, yytext());}
 /*IMM LDX */ 
-( "ldx #" | "LDX #") {return new Symbol(sym.IMM_LDX, yychar, yyline, yytext());}
+( "ldx"{espacio}+"#$"{H}{2}) | ("ldx"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDX_HEXA, yychar, yyline, yytext());}
+( "ldx"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDX_DEC, yychar, yyline, yytext());}
+( "ldx"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDX_CHAR, yychar, yyline, yytext());}
 /*IMM LDY */ 
-( "ldy #" | "LDY #") {return new Symbol(sym.IMM_LDY, yychar, yyline, yytext());}
+( "ldy"{espacio}+"#$"{H}{2}) | ("ldy"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_LDY_HEXA, yychar, yyline, yytext());}
+( "ldy"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_LDY_DEC, yychar, yyline, yytext());}
+( "ldy"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_LDY_CHAR, yychar, yyline, yytext());}
 /*IMM ORAA */ 
-( "oraa #" | "ORAA #") {return new Symbol(sym.IMM_ORAA, yychar, yyline, yytext());}
+( "oraa"{espacio}+"#$"{H}{2}) | ("oraa"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ORAA_HEXA, yychar, yyline, yytext());}
+( "oraa"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ORAA_DEC, yychar, yyline, yytext());}
+( "oraa"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ORAA_CHAR, yychar, yyline, yytext());}
 /*IMM ORAB */ 
-( "orab #" | "ORAB #") {return new Symbol(sym.IMM_ORAB, yychar, yyline, yytext());}
+( "orab"{espacio}+"#$"{H}{2}) | ("orab"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_ORAB_HEXA, yychar, yyline, yytext());}
+( "orab"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_ORAB_DEC, yychar, yyline, yytext());}
+( "orab"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_ORAB_CHAR, yychar, yyline, yytext());}
 /*IMM SBCA */ 
-( "sbca #" | "SBCA #") {return new Symbol(sym.IMM_SBCA, yychar, yyline, yytext());}
+( "sbca"{espacio}+"#$"{H}{2}) | ("sbca"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_SBCA_HEXA, yychar, yyline, yytext());}
+( "sbca"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_SBCA_DEC, yychar, yyline, yytext());}
+( "sbca"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_SBCA_CHAR, yychar, yyline, yytext());}
 /*IMM SBCB */ 
-( "sbcb #" | "SBCB #") {return new Symbol(sym.IMM_SBCB, yychar, yyline, yytext());}
+( "sbcb"{espacio}+"#$"{H}{2}) | ("sbcb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_SBCB_HEXA, yychar, yyline, yytext());}
+( "sbcb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_SBCB_DEC, yychar, yyline, yytext());}
+( "sbcb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_SBCB_CHAR, yychar, yyline, yytext());}
 /*IMM SUBA */ 
-( "suba #" | "SUBA #") {return new Symbol(sym.IMM_SUBA, yychar, yyline, yytext());}
+( "suba"{espacio}+"#$"{H}{2}) | ("suba"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_SUBA_HEXA, yychar, yyline, yytext());}
+( "suba"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_SUBA_DEC, yychar, yyline, yytext());}
+( "suba"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_SUBA_CHAR, yychar, yyline, yytext());}
 /*IMM SUBB */ 
-( "subb #" | "SUBB #") {return new Symbol(sym.IMM_SUBB, yychar, yyline, yytext());}
+( "subb"{espacio}+"#$"{H}{2}) | ("subb"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_SUBB_HEXA, yychar, yyline, yytext());}
+( "subb"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_SUBB_DEC, yychar, yyline, yytext());}
+( "subb"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_SUBB_CHAR, yychar, yyline, yytext());}
 /*IMM SUBD */ 
-( "subd #" | "SUBD #") {return new Symbol(sym.IMM_SUBD, yychar, yyline, yytext());}
+( "subd"{espacio}+"#$"{H}{2}) | ("subd"{espacio}+"#$"{H}{4}) {return new Symbol(sym.IMM_SUBD_HEXA, yychar, yyline, yytext());}
+( "subd"{espacio}+"#"{D}{2,4}) {return new Symbol(sym.IMM_SUBD_DEC, yychar, yyline, yytext());}
+( "subd"{espacio}+"#'".*{1}) {return new Symbol(sym.IMM_SUBD_CHAR, yychar, yyline, yytext());}
+
 /*DIR ADCA */
 ("adca"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADCA_HEXA, yychar, yyline, yytext());}
 ("adca"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ADCA_DEC, yychar, yyline, yytext());}
 /*DIR ADCB */
-"adcb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADCB_HEXA, yychar, yyline, yytext());}
+("adcb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADCB_HEXA, yychar, yyline, yytext());}
 ("adcb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ADCB_DEC, yychar, yyline, yytext());}
 /*DIR ADDA */ 
-( "adda" | "ADDA" ) {return new Symbol(sym.DIR_ADDA, yychar, yyline, yytext());}
+("adda"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADDA_HEXA, yychar, yyline, yytext());}
+("adda"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ADDA_DEC, yychar, yyline, yytext());}
 /*DIR ADDB */
-( "addb" | "ADDB" ) {return new Symbol(sym.DIR_ADDB, yychar, yyline, yytext());}
+("addb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADDB_HEXA, yychar, yyline, yytext());}
+("addb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ADDB_DEC, yychar, yyline, yytext());}
 /*DIR ADDD */
-( "addd" | "ADDD" ) {return new Symbol(sym.DIR_ADDD, yychar, yyline, yytext());}
+("addd"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ADDD_HEXA, yychar, yyline, yytext());}
+("addd"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ADDD_DEC, yychar, yyline, yytext());}
 /*DIR ANDA */
-( "anda" | "ANDA" ) {return new Symbol(sym.DIR_ANDA, yychar, yyline, yytext());}
+("anda"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ANDA_HEXA, yychar, yyline, yytext());}
+("anda"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ANDA_DEC, yychar, yyline, yytext());}
 /*DIR ANDB */ 
-( "andb" | "ANDB") {return new Symbol(sym.DIR_ANDB, yychar, yyline, yytext());}
+("andb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ANDB_HEXA, yychar, yyline, yytext());}
+("andb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ANDB_DEC, yychar, yyline, yytext());}
 /*DIR BCLR */ 
-( "bclr" | "BCLR") {return new Symbol(sym.DIR_BCLR, yychar, yyline, yytext());}
+("bclr"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BCLR_HEXA, yychar, yyline, yytext());}
+("bclr"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BCLR_DEC, yychar, yyline, yytext());}
 /*DIR BITA */ 
-( "bita" | "BITA") {return new Symbol(sym.DIR_BITA, yychar, yyline, yytext());}
+("bita"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BITA_HEXA, yychar, yyline, yytext());}
+("bita"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BITA_DEC, yychar, yyline, yytext());}
 /*DIR BITB */ 
-( "bitb" | "BITB") {return new Symbol(sym.DIR_BITB, yychar, yyline, yytext());}
+("bitb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BITB_HEXA, yychar, yyline, yytext());}
+("bitb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BITB_DEC, yychar, yyline, yytext());}
 /*DIR BRCLR */ 
-( "brclr" | "BRCLR") {return new Symbol(sym.DIR_BRCLR, yychar, yyline, yytext());}
+("brclr"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BRCLR_HEXA, yychar, yyline, yytext());}
+("brclr"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BRCLR_DEC, yychar, yyline, yytext());}
 /*DIR BRSET */ 
-( "brset" | "BRSET") {return new Symbol(sym.DIR_BRSET, yychar, yyline, yytext());}
+("brset"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BRSET_HEXA, yychar, yyline, yytext());}
+("brset"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BRSET_DEC, yychar, yyline, yytext());}
 /*DIR BSET */ 
-( "bset" | "BSET") {return new Symbol(sym.DIR_BSET, yychar, yyline, yytext());}
+("bset"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_BSET_HEXA, yychar, yyline, yytext());}
+("bset"{espacio}+{D}{2}) {return new Symbol(sym.DIR_BSET_DEC, yychar, yyline, yytext());}
 /*DIR CMPA */ 
-( "cmpa" | "CMPA") {return new Symbol(sym.DIR_CMPA, yychar, yyline, yytext());}
+("cmpa"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_CMPA_HEXA, yychar, yyline, yytext());}
+("cmpa"{espacio}+{D}{2}) {return new Symbol(sym.DIR_CMPA_DEC, yychar, yyline, yytext());}
 /*DIR CMPB */ 
-( "cmpb" | "CMPB") {return new Symbol(sym.DIR_CMPB, yychar, yyline, yytext());}
+("cmpb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_CMPB_HEXA, yychar, yyline, yytext());}
+("cmpb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_CMPB_DEC, yychar, yyline, yytext());}
 /*DIR CPD */ 
-( "cpd" | "CPD") {return new Symbol(sym.DIR_CPD, yychar, yyline, yytext());}
+("cpd"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_CPD_HEXA, yychar, yyline, yytext());}
+("cpd"{espacio}+{D}{2}) {return new Symbol(sym.DIR_CPD_DEC, yychar, yyline, yytext());}
 /*DIR CPX */ 
-( "cpx" | "CPX") {return new Symbol(sym.DIR_CPX, yychar, yyline, yytext());}
+("cpx"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_CPX_HEXA, yychar, yyline, yytext());}
+("cpx"{espacio}+{D}{2}) {return new Symbol(sym.DIR_CPX_DEC, yychar, yyline, yytext());}
 /*DIR CPY */ 
-( "cpy" | "CPY") {return new Symbol(sym.DIR_CPY, yychar, yyline, yytext());}
+("cpy"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_CPY_HEXA, yychar, yyline, yytext());}
+("cpy"{espacio}+{D}{2}) {return new Symbol(sym.DIR_CPY_DEC, yychar, yyline, yytext());}
 /*DIR EORA */ 
-( "eora" | "EORA") {return new Symbol(sym.DIR_EORA, yychar, yyline, yytext());}
+("eora"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_EORA_HEXA, yychar, yyline, yytext());}
+("eora"{espacio}+{D}{2}) {return new Symbol(sym.DIR_EORA_DEC, yychar, yyline, yytext());}
 /*DIR EORB */ 
-( "eorb" | "EORB") {return new Symbol(sym.DIR_EORB, yychar, yyline, yytext());}
+("eorb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_EORB_HEXA, yychar, yyline, yytext());}
+("eorb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_EORB_DEC, yychar, yyline, yytext());}
 /*DIR JSR */ 
-( "jsr" | "JSR") {return new Symbol(sym.DIR_JSR, yychar, yyline, yytext());}
+("jsr"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_JSR_HEXA, yychar, yyline, yytext());}
+("jsr"{espacio}+{D}{2}) {return new Symbol(sym.DIR_JSR_DEC, yychar, yyline, yytext());}
 /*DIR LDAA */ 
-( "ldaa" | "LDAA") {return new Symbol(sym.DIR_LDAA, yychar, yyline, yytext());}
+("ldaa"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDAA_HEXA, yychar, yyline, yytext());}
+("ldaa"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDAA_DEC, yychar, yyline, yytext());}
 /*DIR LDAB */ 
-( "ldab" | "LDAB") {return new Symbol(sym.DIR_LDAB, yychar, yyline, yytext());}
+("ldab"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDAB_HEXA, yychar, yyline, yytext());}
+("ldab"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDAB_DEC, yychar, yyline, yytext());}
 /*DIR LDD */ 
-( "ldd" | "LDD") {return new Symbol(sym.DIR_LDD, yychar, yyline, yytext());}
+("ldd"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDD_HEXA, yychar, yyline, yytext());}
+("ldd"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDD_DEC, yychar, yyline, yytext());}
 /*DIR LDS */ 
-( "lds" | "LDS") {return new Symbol(sym.DIR_LDS, yychar, yyline, yytext());}
+("lds"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDS_HEXA, yychar, yyline, yytext());}
+("lds"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDS_DEC, yychar, yyline, yytext());}
 /*DIR LDX */ 
-( "ldx" | "LDX") {return new Symbol(sym.DIR_LDX, yychar, yyline, yytext());}
+("ldx"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDX_HEXA, yychar, yyline, yytext());}
+("ldx"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDX_DEC, yychar, yyline, yytext());}
 /*DIR LDY */ 
-( "ldy" | "LDY") {return new Symbol(sym.DIR_LDY, yychar, yyline, yytext());}
+("ldy"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_LDY_HEXA, yychar, yyline, yytext());}
+("ldy"{espacio}+{D}{2}) {return new Symbol(sym.DIR_LDY_DEC, yychar, yyline, yytext());}
 /*DIR ORAA */ 
-( "oraa" | "ORAA") {return new Symbol(sym.DIR_ORAA, yychar, yyline, yytext());}
+("oraa"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ORAA_HEXA, yychar, yyline, yytext());}
+("oraa"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ORAA_DEC, yychar, yyline, yytext());}
 /*DIR ORAB */ 
-( "orab" | "ORAB") {return new Symbol(sym.DIR_ORAB, yychar, yyline, yytext());}
+("orab"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_ORAB_HEXA, yychar, yyline, yytext());}
+("orab"{espacio}+{D}{2}) {return new Symbol(sym.DIR_ORAB_DEC, yychar, yyline, yytext());}
 /*DIR SBCA */ 
-( "sbca" | "SBCA") {return new Symbol(sym.DIR_SBCA, yychar, yyline, yytext());}
+("sbca"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_SBCA_HEXA, yychar, yyline, yytext());}
+("sbca"{espacio}+{D}{2}) {return new Symbol(sym.DIR_SBCA_DEC, yychar, yyline, yytext());}
 /*DIR SBCB */ 
-( "sbcb" | "SBCB") {return new Symbol(sym.DIR_SBCB, yychar, yyline, yytext());}
+("sbcb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_SBCB_HEXA, yychar, yyline, yytext());}
+("sbcb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_SBCB_DEC, yychar, yyline, yytext());}
 /*DIR STAA */ 
-( "staa" | "STAA") {return new Symbol(sym.DIR_STAA, yychar, yyline, yytext());}
+("staa"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STAA_HEXA, yychar, yyline, yytext());}
+("staa"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STAA_DEC, yychar, yyline, yytext());}
 /*DIR STAB */ 
-( "stab" | "STAB") {return new Symbol(sym.DIR_STAB, yychar, yyline, yytext());}
+("stab"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STAB_HEXA, yychar, yyline, yytext());}
+("stab"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STAB_DEC, yychar, yyline, yytext());}
 /*DIR STD */ 
-( "std" | "STD") {return new Symbol(sym.DIR_STD, yychar, yyline, yytext());}
+("std"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STD_HEXA, yychar, yyline, yytext());}
+("std"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STD_DEC, yychar, yyline, yytext());}
 /*DIR STS */ 
-( "sts" | "STS") {return new Symbol(sym.DIR_STS, yychar, yyline, yytext());}
+("sts"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STS_HEXA, yychar, yyline, yytext());}
+("sts"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STS_DEC, yychar, yyline, yytext());}
 /*DIR STX */ 
-( "stx" | "STX") {return new Symbol(sym.DIR_STX, yychar, yyline, yytext());}
+("stx"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STX_HEXA, yychar, yyline, yytext());}
+("stx"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STX_DEC, yychar, yyline, yytext());}
 /*DIR STY */ 
-( "sty" | "STY") {return new Symbol(sym.DIR_STY, yychar, yyline, yytext());}
+("sty"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_STY_HEXA, yychar, yyline, yytext());}
+("sty"{espacio}+{D}{2}) {return new Symbol(sym.DIR_STY_DEC, yychar, yyline, yytext());}
 /*DIR SUBA */ 
-( "suba" | "SUBA") {return new Symbol(sym.DIR_SUBA, yychar, yyline, yytext());}
+("suba"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_SUBA_HEXA, yychar, yyline, yytext());}
+("suba"{espacio}+{D}{2}) {return new Symbol(sym.DIR_SUBA_DEC, yychar, yyline, yytext());}
 /*DIR SUBB */ 
-( "subb" | "SUBB") {return new Symbol(sym.DIR_SUBB, yychar, yyline, yytext());}
+("subb"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_SUBB_HEXA, yychar, yyline, yytext());}
+("subb"{espacio}+{D}{2}) {return new Symbol(sym.DIR_SUBB_DEC, yychar, yyline, yytext());}
 /*DIR SUBD */ 
-( "subd" | "SUBD") {return new Symbol(sym.DIR_SUBD, yychar, yyline, yytext());}
-
-//ASÍ LO PUSE
-/*INDX ADCA */
-("adca"{espacio}+"$"{H}{2}",X") {return new Symbol(sym.INDX_ADCA, yychar, yyline, yytext());}
-/*INDX ADCB */
-"adcb"{espacio}+"$"{H}{2}",X" {return new Symbol(sym.INDX_ADCB, yychar, yyline, yytext());}
-/*INDY ADCA */
-"adca"{espacio}+"$"{H}{2}",Y" {return new Symbol(sym.INDY_ADCA, yychar, yyline, yytext());}
-/*INDY ADCB */
-"adcb"{espacio}+"$"{H}{2}",Y" {return new Symbol(sym.INDY_ADCB, yychar, yyline, yytext());}
+("subd"{espacio}+"$"{H}{2}) {return new Symbol(sym.DIR_SUBD_HEXA, yychar, yyline, yytext());}
+("subd"{espacio}+{D}{2}) {return new Symbol(sym.DIR_SUBD_DEC, yychar, yyline, yytext());}
 
 /*INDX ADCA */
 {espacio}+"adca"{espacio}+"$"{H}{2}",X" {return new Symbol(sym.INDX_ADCA, yychar, yyline, yytext());}
