@@ -1,0 +1,500 @@
+1:			:	**********************************
+2:			:	*PROGRAMA DE EJEMPLO
+3:			:	**********************************
+4: 	1026		:	PACTL  EQU   $1026
+5: 	1030		:	ADCTL  EQU   $1030
+6: 	1031		:	ADR1   EQU   $1031
+7: 	1032		:	ADR2   EQU   $1032
+8: 	1033		:	ADR3   EQU   $1033
+9: 	1034		:	ADR4   EQU   $1034
+10: 	1039		:	OPTION EQU   $1039
+11:
+12: 	1000		:	PORTA  EQU   $1000
+13: 	1008		:	PORTD  EQU   $1008
+14: 	100A		:	PORTE  EQU   $100A
+15: 	1002		:	PORTG  EQU   $1002
+16:
+17: 	1001		:	DDRA   EQU   $1001
+18: 	1009		:	DDRD   EQU   $1009
+19: 	1003		:	DDRG   EQU   $1003
+20:
+21: 	1024		:	TMSK2  EQU   $1024
+22: 	1025		:	TFLG2  EQU   $1025
+23:
+24: 	102F		:	SCDR   EQU   $102F
+25: 	102D		:	SCCR2  EQU   $102D
+26: 	102E		:	SCSR   EQU   $102E
+27: 	102C		:	SCCR1  EQU   $102C
+28: 	102B		:	BAUD   EQU   $102B
+29: 	103C		:	HPRIO  EQU   $103C
+30: 	1028		:	SPCR   EQU   $1028
+31: 	105D		:	CSCTL  EQU   $105D
+32: 	1038		:	OPT2   EQU   $1038
+33:
+34:			:	* VARIABLES *********************
+35:
+36: 	000C		:	ORDEN  EQU   $000C
+37: 	000D		:	SEG    EQU   $000D
+38: 	000E		:	U1     EQU   $000E
+39: 	000F		:	U2     EQU   $000F
+40: 	0010		:	U3     EQU   $0010
+41: 	0011		:	U4     EQU   $0011
+42: 	0012		:	U5     EQU   $0012
+43: 	0013		:	V1     EQU   $0013
+44: 	0016		:	BAS_L  EQU   $0016
+45: 	0017		:	V5     EQU   $0017
+46: 	0018		:	TEMPO  EQU   $0018
+47: 	0019		:	ALTO   EQU   $0019
+48: 	001A		:	BAJO   EQU   $001A
+49: 	001B		:	BASE_H EQU   $001B
+50: 	001C		:	BASE_L EQU   $001C
+51: 	001D		:	V3     EQU   $001D
+52: 	001E		:	V4     EQU   $001E
+53:
+54:			:	**********************************
+55:			:	*CONFIGURA REGISTROS
+56:			:	**********************************
+57: ** ERROR 009	:	ORG   $8000   * DIR DE INICIO
+58: ** ERROR 009	:	LDS   #$03FF  * APUNTADOR DE STAK
+59:
+60:
+61: ** ERROR 009	:	LDAA  #$00    * CONFIG TODO EL PUERTO  A COMO ENTRADAS
+62: ** ERROR 009	:	STAA  DDRA    * EL PUERTO A
+63:
+64: 0004 (860F)    	:	       LDAA  #$F    * CONFIG TODO EL PUERTO  G COMO SALIDAS
+65: 0006 (B71003)	:	       STAA  DDRG    * EL PUERTO G 
+66:
+67: 0009 (8600)    	:	       LDAA  #$00    * SE PONE PUERTO G EN CEROS
+68: 000B (B71002)	:	       STAA  PORTG
+69:
+70: ** ERROR 007	:	       LDD   #$302C5  * CONFIGURA PUERTO SERIAL
+71: ** ERROR 002	:	       STAA  BAU    * BAUD  9600  para cristal de 8MHz
+72: 0010 (F7102D)	:	       STAB  SCCR2   * HABILITA  RX Y TX PERO INTERRUPCN SOLO RX
+73: 0013 (8600)    	:	       LDAA  #$00
+74: 0015 (B7102C)	:	       STAA  SCCR1   * 8 BITS
+75:
+76: 0018 (86FE)    	:	       LDAA  #$FE    * CONFIG PUERTO D COMO SALIDAS (EXCEPTO PD0)
+77: 001A (B71009)	:	       STAA  DDRD    * SEA  ENABLE DEL DISPLAY  PD4  Y RS PD3
+78:
+79:
+80: 001D (8604)    	:	       LDAA  #$04
+81: 001F (B7103C)	:	       STAA  HPRIO
+82:
+83: 0022 (8600)    	:	       LDAA  #$00
+84: 0024 (06)		:	       TAP
+85:
+86:
+87:
+88:
+89:
+90:
+91:
+92:			:	**********************************
+93:			:	*PROGRAMA PRINCIPAL
+94:			:	**********************************
+95: 0025		:	MAIN   
+96: 0025 (BD0096)	:	       JSR   INICIA
+97: 0028 (863F)    	:	       LDAA  #$3F
+98: 002A (970C)    	:	       STAA  ORDEN         * CARGO UN (?) en 000A
+99:
+100:
+101: 002C		:	CICLO
+102: 002C (960D)    	:	       LDAA  SEG
+103: 002E (27FC)	:	       BEQ   CICLO 
+104: 0030 (7F000D)	:	       CLR   SEG
+105:
+106: ** ERROR 002	:	       LDAA  PACNT
+107: 0034 (9717)    	:	       STAA  V5
+108: ** ERROR 002	:	       CLR   PACNT
+109:
+110:
+111: 0037 (BD01AD)	:	       JSR   DATARXESELMEJORDETODOS        * DESPLIEGA DATO TRANSMITIDO
+112: 003A (1809)	:	       DEY
+113: 003C (188F)	:	       XGDY 
+114: ** ERROR 002	:	       STAA  ALTER
+115: 003F (D71A)    	:	       STAB  BAJO
+116: 0041 (188F)	:	       XGDY
+117: 0043 (9619)    	:	       LDAA  ALTO
+118: 0045 (D61A)    	:	       LDAB  BAJO
+119: 0047 (BD0210)	:	       JSR   BINBCD
+120: 004A (BD0144)	:	       JSR   DISPLAY
+121: 004D (BD0134)	:	       JSR   COMA
+122: 0050 (BD01C9)	:	       JSR   VOLTA
+123:
+124: 0053 (4F)		:	       CLRA
+125: 0054 (D613)    	:	       LDAB  V1
+126: 0056 (BD0220)	:	       JSR   BNBCD
+127: 0059 (BD0163)	:	       JSR   DSPLY
+128: 005C (BD0134)	:	       JSR   COMA
+129:
+130: ** ERROR 004	:	       CLR
+131: ** ERROR 002	:	       LDAB  V2
+132: 0061 (BD0220)	:	       JSR   BNBCD
+133: 0064 (BD0163)	:	       JSR   DSPLY
+134: 0067 (BD0134)	:	       JSR   COMA
+135:
+136: 006A (4F)		:	       CLRA
+137: ** ERROR 004	:	       LDB  V3
+138: 006C (BD0220)	:	       JSR   BNBCD
+139: 006F (BD0163)	:	       JSR   DSPLY
+140: 0072 (BD0134)	:	       JSR   COMA
+141:
+142: 0075 (4F)		:	       CLRA
+143: 0076 (D61E)    	:	       LDAB  V4
+144: 0078 (BD0220)	:	       JSR   BNBCD
+145: 007B (BD0163)	:	       JSR   DSPLY
+146: 007E (BD0134)	:	       JSR   COMA
+147:
+148: 0081 (4F)		:	       CLRA
+149: 0082 (D617)    	:	       LDAB  V5
+150: 0084 (BD0220)	:	       JSR   BNBCD
+151: 0087 (BD0163)	:	       JSR   DSPLY
+152:
+153: 008A (BD0191)	:	       JSR   CRYTRN
+154:
+155: 008D (7E002C)	:	       JMP   CICLO
+156:
+157:
+158:			:	***********************************
+159:			:	* INICIA
+160:			:	***********************************
+161: 0090		:	INICIA
+162:
+163: 0090 (7F000D)	:	      CLR  SEG
+164:
+165: 0093 (7F1002)	:	      CLR  PORTG
+166: 0096 (86F4)    	:	      LDAA #$F4         
+167: 0098 (9718)    	:	      STAA TEMPO         * TEMPO ES VARIABLE PARA CONTAR 244 CICLOS
+168:
+169: 009A (CE1024)	:	      LDX #TMSK2
+170: 009D (1C0040)	:	      BSET $00,X,#$40    * HABILITA INTERRUPCION TIMER T-REAL
+171: 00A0 (0E)		:	      CLI
+172:
+173: 00A1 (CE1026)	:	      LDX #PACTL
+174: 00A4 (1C0050)	:	      BSET $00,X,#$50    * HABILITA PAEN -ACUMULADOR PULSOS ALTOS-
+175: ** ERROR 002	:	      CLR PACNT          * BORRA ACUMULADOR DE PULSOS
+176:
+177: 00A8 (8610)    	:	      LDAA #$10
+178: 00AA (971B)    	:	      STAA BASE_H        * PONE UN #1060 COMO DIRECCION BASE INICIAL
+179: 00AC (8660)    	:	      LDAA #$60
+180: 00AE (971C)    	:	      STAA BASE_L    
+181:
+182: 00B0 (18CE1060)	:	      LDY  #$1060      
+183:
+184: 00B4 (8616)    	:	      LDAA #$16
+185: ** ERROR 002	:	      STAA BAS_H        * PONE UN #1653 NUMERO TOTAL DE JUEGO DE MUESTRAS
+186: 00B7 (8653)    	:	      LDAA #$53
+187: 00B9 (9716)    	:	      STAA BAS_L   
+188:
+189:
+190: 00BB (7F0019)	:	      CLR  ALTO          * INICIA INDICE MUESTRA EN 0
+191: 00BE (7F001A)	:	      CLR  BAJO
+192:
+193: 00C1 (39)		:	       RTS
+194:			:	***********************************
+195:			:	* SACA
+196:			:	***********************************
+197: 00C2		:	SACA
+198:
+199:
+200: 00C2 (9619)    	:	       LDAA  ALTO         * INDICE DE MUESTRA (SEGUNDO)
+201: 00C4 (D61A)    	:	       LDAB  BAJO
+202: 00C6 (188F)	:	       XGDY
+203: 00C8 (1808)	:	       INY
+204: 00CA (188F)	:	       XGDY
+205: 00CC (BD0210)	:	       JSR   BINBCD
+206: 00CF (BD0144)	:	       JSR   DISPLAY
+207: 00D2 (BD0134)	:	       JSR   COMA
+208:
+209: 00D5 (961B)    	:	       LDAA  BASE_H       * INDICE DE MUESTRA (PARTICULAR)
+210: 00D7 (D61C)    	:	       LDAB  BASE_L
+211: 00D9 (188F)	:	       XGDY
+212:
+213: 00DB (1808)	:	       INY
+214: 00DD (4F)		:	       CLRA
+215: 00DE (18E600)	:	       LDAB  $00,Y  
+216: 00E1 (BD0220)	:	       JSR   BNBCD
+217: 00E4 (BD0163)	:	       JSR   DSPLY
+218: 00E7 (BD0134)	:	       JSR   COMA
+219:
+220: 00EA (1808)	:	       INY
+221: 00EC (4F)		:	       CLRA
+222: 00ED (18E600)	:	       LDAB  $00,Y
+223: 00F0 (BD0220)	:	       JSR   BNBCD
+224: 00F3 (BD0163)	:	       JSR   DSPLY
+225: 00F6 (BD0134)	:	       JSR   COMA
+226:
+227: 00F9 (1808)	:	       INY
+228: 00FB (4F)		:	       CLRA
+229: 00FC (18E600)	:	       LDAB  $00,Y
+230: 00FF (BD0220)	:	       JSR   BNBCD
+231: 0102 (BD0163)	:	       JSR   DSPLY
+232: 0105 (BD0134)	:	       JSR   COMA
+233:
+234: 0108 (1808)	:	       INY
+235: 010A (4F)		:	       CLRA
+236: 010B (18E600)	:	       LDAB  $00,Y
+237: 010E (BD0220)	:	       JSR   BNBCD
+238: 0111 (BD0163)	:	       JSR   DSPLY
+239: 0114 (BD0134)	:	       JSR   COMA
+240:
+241: 0117 (1808)	:	       INY
+242: 0119 (4F)		:	       CLRA 
+243: 011A (18E600)	:	       LDAB  $00,Y
+244: 011D (BD0220)	:	       JSR   BNBCD
+245: 0120 (BD0163)	:	       JSR   DSPLY
+246:
+247: 0123 (188F)	:	       XGDY
+248: 0125 (971B)    	:	       STAA BASE_H
+249: 0127 (D71C)    	:	       STAB BASE_L
+250:
+251: ** ERROR 004	:	       JR   CRYTRN
+252:
+253: 012A (39)		:	       RTS
+254:			:	***********************************
+255:			:	* COMA
+256:			:	***********************************
+257: 012B		:	COMA
+258: 012B (CE102E)	:	       LDX   #SCSR 
+259:
+260: 012E (B6102E)	:	       LDAA  SCSR
+261: 0131 (862C)    	:	       LDAA  #$2C             * COMA
+262: 0133 (B7102F)	:	       STAA  SCDR
+263: 0136		:	C1
+264: 0136 (1F07)	:	       BRCLR $00,X,#$80 C1 
+265: 013A (39)		:	       RTS
+266:			:	***********************************
+267:			:	* DESPLIEGA
+268:			:	***********************************
+269: 013B		:	DISPLAY
+270:
+271: 013B (CE102E)	:	       LDX   #SCSR 
+272:
+273: 013E (B6102E)	:	       LDAA  SCSR
+274: 0141 (960E)    	:	       LDAA  U1             * U
+275: 0143 (8B30)    	:	       ADDA  #$30
+276: 0145 (B7102F)	:	       STAA  SCDR
+277: 0148		:	T1
+278: 0148 (1F07)	:	       BRCLR $00,X,#$80 T1 
+279:
+280: 014C (B6102E)	:	       LDAA  SCSR
+281: 014F (960F)    	:	       LDAA  U2             * U2
+282: 0151 (8B30)    	:	       ADDA  #$30
+283: 0153 (B7102F)	:	       STAA  SCDR
+284: 0156		:	T2
+285: 0156 (1F07)	:	       BRCLR $00,X,#$80 T2 
+286:
+287: 015A		:	DSPLY  
+288: 015A (CE102E)	:	       LDX   #SCSR
+289:
+290: 015D (B6102E)	:	       LDAA SCSR
+291: 0160 (9610)    	:	       LDAA  U3             * U3
+292: 0162 (8B30)    	:	       ADDA  #$30
+293: 0164 (B7102F)	:	       STAA  SCDR
+294: 0167		:	T3
+295: 0167 (1F07)	:	       BRCLR $00,X,#$80 T3 
+296:
+297: 016B (B6102E)	:	       LDAA SCSR 
+298: 016E (9611)    	:	       LDAA  U4             * U4
+299: 0170 (8B30)    	:	       ADDA  #$30
+300: 0172 (B7102F)	:	       STAA  SCDR
+301: 0175		:	T4
+302: 0175 (1F07)	:	       BRCLR $00,X,#$80 T4 
+303:
+304: 0179 (B6102E)	:	       LDAA SCSR
+305: 017C (9612)    	:	       LDAA  U5             * U5
+306: 017E (8B30)    	:	       ADDA  #$30
+307: 0180 (B7102F)	:	       STAA  SCDR
+308: 0183		:	T5
+309: 0183 (1F07)	:	       BRCLR $00,X,#$80 T5  
+310:
+311: 0187 (39)		:	       RTS
+312:
+313:			:	***********************************
+314:			:	* CARRY RETURN
+315:			:	***********************************
+316:
+317: 0188		:	CRYTRN
+318: 0188 (CE102E)	:	       LDX   #SCSR 
+319: 018B (B6102E)	:	       LDAA  SCSR
+320: 018E (860A)    	:	       LDAA  #$0A             * NEW LINE     
+321: 0190 (B7102F)	:	       STAA  SCDR
+322: 0193		:	CR1
+323: 0193 (1F07)	:	       BRCLR $00,X,#$80 CR1        
+324:
+325: 0197 (B6102E)	:	       LDAA SCSR
+326: 019A (860D)    	:	       LDAA #$0D              * CARRY RETURN     
+327: 019C (B7102F)	:	       STAA SCDR
+328: 019F		:	CR2
+329: 019F (1F07)	:	       BRCLR $00,X,#$80 CR2        
+330:
+331: 01A3 (39)		:	       RTS
+332:			:	***********************************
+333:			:	*  DESPLIEGUE DE DATO RECIBIDO
+334:			:	***********************************
+335:
+336: 01A4		:	DATARXESELMEJORDETODOS
+337:
+338: 01A4 (CE102E)	:	       LDX   #SCSR 
+339: 01A7 (B6102E)	:	       LDAA  SCSR
+340: 01AA (960C)    	:	       LDAA  ORDEN             * NEW LINE     
+341: 01AC (B7102F)	:	       STAA  SCDR
+342: 01AF		:	DT1
+343: 01AF (1F07)	:	       BRCLR $00,X,#$80 DT1        
+344:
+345: 01B3 (B6102E)	:	       LDAA SCSR 
+346: 01B6 (863A)    	:	       LDAA #$3A              * DOS PUNTOS    
+347: 01B8 (B7102F)	:	       STAA SCDR
+348: 01BB		:	DT2
+349: 01BB (1F07)	:	       BRCLR $00,X,#$80 DT2        
+350:
+351: 01BF (39)		:	       RTS
+352:			:	***********************************
+353:			:	* voltimetro
+354:			:	***********************************
+355: 01C0		:	VOLTA
+356: 01C0 (CE1030)	:	      LDX #ADCTL      
+357:
+358: 01C3 (8680)    	:	      LDAA #$80
+359: 01C5 (B71039)	:	      STAA OPTION        * PONE EN MARCHA EL ADC
+360:
+361: 01C8 (8610)    	:	      LDAA #$10
+362: 01CA (B71030)	:	      STAA ADCTL         * ENTRADA MULTIPLE SELECCIONA CANAL 0
+363:
+364: 01CD		:	E1
+365: 01CD (1F07)	:	      BRCLR $00,X,#$80 E1  
+366: 01D1 (F61031)	:	      LDAB ADR1
+367: 01D4 (D713)    	:	      STAB V1
+368:
+369: 01D6 (8680)    	:	      LDAA #$80
+370: 01D8 (B71039)	:	      STAA OPTION        * PONE EN MARCHA EL ADC
+371:
+372: 01DB (8611)    	:	      LDAA #$11
+373: 01DD (B71030)	:	      STAA ADCTL         * ENTRADA MULTIPLE SELECCIONA CANAL 1
+374:
+375: 01E0		:	E2
+376: 01E0 (1F07)	:	      BRCLR $00,X,#$80 E2  
+377: 01E4 (F61032)	:	      LDAB ADR2
+378: ** ERROR 002	:	      STAB V2
+379:
+380: 01E8 (8612)    	:	      LDAA #$12
+381: 01EA (B71030)	:	      STAA ADCTL         * ENTRADA MULTIPLE SELECCIONA CANAL 2
+382:
+383: 01ED		:	E3
+384: 01ED (1F09)	:	      BRCLR $00,X,#$80 E3  
+385: 01F1 (F61033)	:	      LDAB ADR3
+386: 01F4 (D71D)    	:	      STAB V3 
+387:
+388: 01F6 (8613)    	:	      LDAA #$13
+389: 01F8 (B71030)	:	      STAA ADCTL         * ENTRADA MULTIPLE SELECCIONA CANAL 3
+390:
+391: 01FB		:	E4
+392: 01FB (1F09)	:	      BRCLR $00,X,#$80 E4  
+393: 01FF (F61034)	:	      LDAB ADR4
+394: 0202 (D71E)    	:	      STAB V4
+395:
+396:
+397: 0204 (39)		:	      RTS
+398:			:	***********************************
+399:			:	* CONVIERTE A BCD
+400:			:	***********************************
+401:
+402: 0205		:	BINBCD
+403:
+404: 0205 (CE2710)	:	      LDX  #$2710
+405: 0208 (02)		:	      IDIV 
+406: 0209 (8F)		:	      XGDX
+407: 020A (D70E)    	:	      STAB U1
+408: 020C (8F)		:	      XGDX
+409: 020D (CE03E8)	:	      LDX  #$3E8
+410: 0210 (02)		:	      IDIV
+411: 0211 (8F)		:	      XGDX
+412: 0212 (D70F)    	:	      STAB U2
+413: 0214 (8F)		:	      XGDX
+414:
+415: 0215		:	BNBCD
+416: 0215 (CE0064)	:	      LDX  #$64
+417: 0218 (02)		:	      IDIV
+418: 0219 (8F)		:	      XGDX
+419: 021A (D710)    	:	      STAB U3
+420: 021C (8F)		:	      XGDX
+421: 021D (CE000A)	:	      LDX  #$A
+422: 0220 (02)		:	      IDIV
+423: 0221 (8F)		:	      XGDX
+424: 0222 (D711)    	:	      STAB U4
+425: 0224 (8F)		:	      XGDX
+426: 0225 (D712)    	:	      STAB U5
+427:
+428:
+429:
+430: 0227 (39)		:	      RTS
+431:
+432:
+433:
+434:			:	***********************************
+435:			:	* ATENCION A INTERRUPCION SERIAL
+436:			:	***********************************
+437: 	 (F100)		:	       ORG  $F100
+438:
+439: F100 (36)		:	       PSHA
+440:
+441: F101 (B6102E)	:	       LDAA SCSR
+442: F104 (B6102F)	:	       LDAA SCDR
+443: F107 (970C)    	:	       STAA ORDEN
+444:
+445: F109 (32)		:	       PULA  
+446:
+447: F10A (3B)		:	       RTI
+448:
+449:			:	***********************************
+450:			:	* ATENCION A INTERRUPCION REAL TIME
+451:			:	***********************************
+452: 	 (F110)		:	      ORG  $F110
+453:
+454: F110 (36)		:	      PSHA
+455: F111 (3C)		:	      PSHX
+456:
+457: F112 (CE1025)	:	      LDX #TFLG2
+458: F115 (1C0040)	:	      BSET $00,X,#$40    * BORRA BANDERA INTERRUPCION
+459: F118 (7A0018)	:	      DEC TEMPO
+460: F11B (2703)	:	      BEQ SEGUNDO
+461:
+462: F11D (32)		:	      PULA
+463: F11E (38)		:	      PULX
+464: F11F (3B)		:	      RTI
+465:
+466: F120		:	SEGUNDO
+467: F120 (86FF)    	:	      LDAA #$FF
+468: F122 (970D)    	:	      STAA SEG           * SEG ES UNA BANDERA DE SEGUNDO    
+469: F124 (86F4)    	:	      LDAA #$F4         
+470: F126 (9718)    	:	      STAA TEMPO         * TEMPO ES VARIABLE PARA CONTAR 244 CICLOS
+471: F128 (7C1002)	:	      INC  PORTG
+472:
+473: F12B (32)		:	      PULA
+474: F12C (38)		:	      PULX
+475: F12D (3B)		:	      RTI
+476:			:	***********************************
+477:			:	* VECTOR INTERRUPCION SERIAL
+478:			:	***********************************
+479: 	 (FFD6)		:	       ORG   $FFD6
+480: FFD6 (F100)	:	       FCB   $F1,$00       
+481:
+482:			:	***********************************
+483:			:	* VECTOR INTERRUPCION REAL TIME
+484:			:	***********************************
+485: 	 (FFF0)		:	       ORG   $FFF0
+486: FFF0 (F110)	:	       FCB   $F1,$10       
+487:
+488:			:	***********************************
+489:			:	*RESET
+490:			:	***********************************
+491: 	 (FFFE)		:	       ORG    $FFFE
+492: FFFE (8000)	:	RESET  FCB    $80,$00
+493:			:	***********************************
+494:			:	       END   $8000
+495:
+496:
+497:
+498:
+499:
+500:
